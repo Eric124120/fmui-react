@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-03-11 15:26:52
+ * @description  Mixin 混合器&占位符
+ */
+
+/* 清除浮动 */
+@mixin clearfix () {
+    &:before,
+    &:after {
+        display: table;
+
+        content: '';
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+%clearfix {
+    @include clearfix();
+}
+
+
+
+
+/* 溢出隐藏 */
+@mixin ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+%ellipsis {
+    @include ellipsis();
+}
+
+@mixin mask($zIndex: 202, $backgroundColor: #000, $opacity: .6) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1000%;
+  height: 1000%;
+  background-color: $backgroundColor;
+  opacity: $opacity;
+  z-index: $zIndex;
+}

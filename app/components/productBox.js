@@ -10,7 +10,7 @@ var ProductBox = React.createClass({
 	render: function () {
 		return (
 			<div className="btn">
-				Hello World!sdas
+				Hello World!13
 			</div>
 		);
 	}

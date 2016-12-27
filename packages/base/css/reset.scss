@@ -1,9 +1,14 @@
 @charset 'UTF-8';
-
+/**
+ * 
+ * @authors Benjamin (cuew1987@gmail.com)
+ * @date    2016-02-25 16:20:20
+ * @version $Id$
+ */
 *,
 :after,
 :before {
-	-webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 blockquote,
@@ -30,56 +35,56 @@ td,
 textarea,
 th,
 ul {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 table {
-	border-spacing: 0;
-	border-collapse: collapse;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
 caption,
 th {
-	text-align: left;
+    text-align: left;
 }
 
 fieldset,
 img {
-	border: 0;
+    border: 0;
 }
 
 li {
-	list-style: none;
+    list-style: none;
 }
 
 q:before,
 q:after {
-	content: '';
+    content: '';
 }
 
 input:password {
-	ime-mode: disabled;
+    ime-mode: disabled;
 }
 
 :focus {
-	outline: 0;
+    outline: 0;
 }
 
 body,
 html {
-	min-height: 100%;
-	background-color: #f6f6f6;
+    min-height: 100%;
+    background-color: #f6f6f6;
 }
 
 body {
-	-webkit-user-select: none;
-	user-select: none;
+    -webkit-user-select: none;
+            user-select: none;
 }
 
 a,
 img {
-	-webkit-touch-callout: none;
+    -webkit-touch-callout: none;
 }
 
 body,
@@ -87,36 +92,36 @@ button,
 input,
 select,
 textarea {
-	font-family: 'Helvetica Neue',Helvetica,STHeiTi,sans-serif;
-	font-size: 14px;
-	line-height: 1.5;
+    font-family: 'Helvetica Neue',Helvetica,STHeiTi,sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
 
-	color: #333;
+    color: #333;
 }
 
 input,button, textarea, select {
-	-webkit-appearance: none;
-	outline: none;
-	border: none;
-	background-color: transparent;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 
-	color: #37acf4;
+    color: #37acf4;
 }
 
 @media screen and (max-width: 320px) {
-	body {
-		width: 320px;
-		min-width: 320px;
-		overflow: auto;
-	}
+    body {
+        width: 320px;
+        min-width: 320px;
+        overflow: auto;
+    }
 }
 @media screen and (min-width: 750px) {
-	body {
-		width: 750px;
-		margin: 0 auto;
-	}
+    body {
+        width: 750px;
+        margin: 0 auto;
+    }
 }

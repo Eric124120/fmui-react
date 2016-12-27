@@ -46,6 +46,7 @@ module.exports = {
 
 	plugins: [
 		new HtmlWebpackPlugin({
+			favicon:'./app/images/favicon.ico', //favicon路径
 			template: __dirname + "/app/index.html"
 		}),
 		extractCSS // 将css独立出来

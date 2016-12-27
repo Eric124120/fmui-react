@@ -10,7 +10,15 @@ const extractCSS = new ExtractTextPlugin('./css/[name]_[hash:8].css');
 
 module.exports = {
 	devtool: 'eval-source-map',
-	entry: __dirname + "/app/main.js",
+	entry: {
+		js: __dirname + "/app/main.js",
+		vendor: [
+			'react',
+			'classnames',
+			'react-router',
+			'react-dom'
+		],
+	},
 	output: {
 		path: __dirname + "/dist",
 		filename: "build_[hash:8].js"
@@ -49,6 +57,8 @@ module.exports = {
 			favicon:'./app/images/favicon.ico', //favicon路径
 			template: __dirname + "/app/index.html"
 		}),
+		// 引用模块单独打包（业务内容改变，还会重新打包，后期优化）
+		new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
 		// 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
 		new webpack.optimize.OccurenceOrderPlugin(),
 		// 压缩JS和CSS

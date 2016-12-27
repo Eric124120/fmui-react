@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@import "../helper/css3";
+
+.fm-icon-clear {
+    position: relative;
+    display: block;
+    width: 8px;
+    height: 8px;
+    padding: 2px;
+    overflow: hidden; 
+    visibility: hidden;
+    background-color: #bdbdbd;
+    border-radius: 50%;
+    @include transform(rotate(-45deg));
+
+    &:before,
+    &:after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 8px;
+        height: 1px;
+        left: 2px;
+        top: 50%;
+        background-color: #fff;
+    }
+    &:after {
+        @include transform(rotate(-90deg));
+    }
+}

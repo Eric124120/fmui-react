@@ -2,8 +2,16 @@
  * Created by huangchengwen on 16/12/26.
  */
 import React from 'react';
-import {render} from 'react-dom';
-import AppComponent from './components/productBox';
+import ReactDom from 'react-dom';
+import Button from './pages/button'
+import { Router, Route, hashHistory } from 'react-router'
 
 
-render(<AppComponent />, document.getElementById('app'));
+ReactDom.render(
+	(
+		<Router history={hashHistory}>
+			<Route path="/" component={ Button }/>
+		</Router>
+	),
+	document.getElementById('app')
+);

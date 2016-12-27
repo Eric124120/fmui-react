@@ -1,0 +1,31 @@
+
+.ml-flexbox {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	align-items: center;
+}
+
+.ml-flexbox-item {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	display: block;
+	margin-left: 8px;
+	min-width: 20px;
+	overflow: hidden;
+}
+
+.ml-flexbox-item:first-child {
+	margin-left: 0;
+}
+
+.ml-flexbox-item.ml-item-ellipsis {
+	width: auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

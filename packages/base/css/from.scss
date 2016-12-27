@@ -1,0 +1,305 @@
+@charset "UTF-8";
+
+@import '../helper/css3';
+@import '../helper/mixin';
+
+// ======================== 单行list ======================================
+.ml-form {
+	margin-bottom: 20px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	// header
+	&-header {
+		position: relative;
+		color: #666;
+		font-weight: 700;
+		background-color: #fff;
+		padding: 20px 0 10px 10px;
+
+		&:before {
+			position: absolute;
+			content: '';
+			width: 2px;
+			height: 20px;
+			left: 0;
+			top: 20px;
+			background-color: #ff6c4a;
+		}
+
+	}
+	// body
+	&-body {
+		background-color: #fff;
+	}
+
+	// footer
+	&-footer {
+		font-size: 12px;
+
+		padding: 8px 14px;
+
+		color: #999;
+	}
+
+	// 列表项
+	&-item {
+		position: relative;
+
+		margin-top: -1px;
+		padding: 13px 14px;
+		//margin: 0 14px;
+
+		text-align: left;
+		vertical-align: middle;
+
+		color: #333;
+
+		//border-bottom: 1px solid #e6e6e6;
+		background:
+			linear-gradient(0deg,#fff,#fff) top left no-repeat,
+			linear-gradient(180deg,#fff,#fff) bottom left no-repeat,
+			linear-gradient(0deg,#fff,#fff) top right no-repeat,
+			linear-gradient(180deg,#fff,#fff) bottom right no-repeat,
+			linear-gradient(0deg,#f0f0f0,#f0f0f0,rgba(229,229,229,0)) top left no-repeat,
+			linear-gradient(180deg,#f0f0f0,#f0f0f0,rgba(229,229,229,0)) bottom left no-repeat,#fff;
+
+		-webkit-background-size: 15px 1px,15px 1px,15px 1px,15px 1px,100% 1px,100% 1px;
+
+		&:first-child {
+			-webkit-background-size: 0 0;
+		}
+
+		&:last-child {
+			-webkit-background-size: 15px 1px,0 0,15px 1px,0 0,100% 1px,100% 1px;
+		}
+
+		@include display-flex();
+		@include align-items(center);
+
+		.ml-form-icon {
+			margin-right: 15px;
+			width: 24px;
+			height: 24px;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
+		}
+
+		.ml-form-content {
+			width: auto;
+			min-width: 60px;
+			// 此处设置color是为了兼容当.ml-form-item挂载到a元素上时，点击之后，再返回，发现QQ浏览器a链接的文本变色的问题
+			color: #333;
+
+			@include ellipsis();
+
+			@include flex(1);
+
+			@include align-self(center);
+		}
+
+		.ml-form-extra {
+			@include flex(1);
+			font-size: 14px;
+			color: #999;
+			width: auto;
+			min-width: 60px;
+
+			@include ellipsis();
+
+			text-align: right;
+			padding-right: 4px;
+			line-height: 24px;
+
+			@include align-self(center);
+		}
+
+		.ml-form-title {
+			width: auto;
+			@include ellipsis();
+		}
+
+		.ml-form-brief {
+			color: #999;
+			font-size: 13px;
+			line-height: 15px;
+			margin-top: 2px;
+			width: auto;
+			@include ellipsis();
+		}
+
+		.ml-form-thumb {
+			margin-right: 10px;
+
+			img {
+				width: 42px;
+				height: 42px;
+				vertical-align: middle;
+			}
+		}
+
+		/* Arrow 箭头 */
+		.ml-form-arrow {
+			width: 24px;
+			height: 24px;
+			line-height: 24px;
+			overflow: hidden;
+
+			/**
+			 * 此处垂直居中亦可使用align-self
+			 * @include align-self(center);
+			 * 但是multi-thumb列表中右侧icon-arrow在微信浏览器测试无法垂直居中，
+			 * align-self没有生效,
+			 * 此处采用margin-top来使icon-arrow在multi-thumb也垂直居中，再下方设置
+			 */
+			text-align: center;
+		}
+
+		.ml-form-clear {
+			width: 12px;
+			padding: 6px;
+		}
+
+		// Form 表单
+		.ml-form-label {
+			color: #666;
+			min-width: 96px;
+		}
+
+		.ml-form-tip {
+			// 此处和fm-form-arrow等宽
+			width: 24px;
+			min-width: 24px;
+			text-align: center;
+			color: #999;
+			font-size: 14px;
+			line-height: 24px;
+		}
+		.ml-form-areacode {
+			width: 40px;
+			min-width: 40px;
+			input {
+				font-size: 14px;
+				width: 100%;
+				height: 24px;
+				line-height: 24px;
+			}
+		}
+		.ml-form-control {
+			@include flex(1);
+			font-size: 14px;
+			line-height: 24px;
+
+			input,
+			select,
+			textarea,
+			button {
+				font-size: 14px;
+				line-height: 24px;
+				width: 100%;
+				height: 24px;
+			}
+
+			/**
+			 *  select placeholder 颜色 和input placeholder颜色一致
+			 *  通过addClass('selected')控制选中颜色
+			*/
+			select {
+				color: #bdbdbd;
+				padding-left: 0px;
+				font-weight: normal;
+				&.selected {
+					color: #333;
+				}
+			}
+			/**
+			 * 手机端此处可以不加
+			.placeholder option {
+				color: #333;
+			}
+			.placeholder option:first-child {
+				color: #999;
+			}
+			*/
+		}
+
+		/* 校验码 */
+		.ml-form-captcha {
+			width: 84px;
+			height: 24px;
+			overflow: hidden;
+			margin-left: 4px;
+			text-align: center;
+
+			/* 短信校验码 */
+			.captcha-sms {
+				width: 80px;
+				height: 24px;
+				line-height: 24px;
+				color: #ff552e;
+				font-size: 12px;
+
+				&[disabled],
+				&.disabled {
+					color: #e6e6e6;
+				}
+
+				&.img-loading {
+					width: 68px;
+					vertical-align: top;
+				}
+			}
+
+			/* 图形校验码 */
+			.captcha-img {
+				display: block;
+				width: 68px;
+				height: 24px;
+				margin: 0 auto;
+			}
+
+			&:before {
+				float: left;
+				content: "";
+				width: 1px;
+				height: 24px;
+				background-color: #ddd;
+			}
+		}
+
+		/* Checkbox */
+		&.ml-form-item-checkbox {
+			padding-right: 60px;
+		}
+
+		/* Select 处理 */
+		&.ml-form-item-combobox {
+			.ml-form-arrow {
+				position: absolute;
+				top: 50%;
+				margin-top: -12px;
+				right: 14px;
+				pointer-events: none;
+			}
+		}
+
+	}
+}
+
+.ml-form a.ml-form-item {
+	&:active {
+		background-color: #e4e4e4;
+	}
+}
+
+/* Clear 清除*/
+.ml-input-autoclear {
+	.ml-icon-clear {
+		visibility: visible;
+	}
+}
+
+
+
