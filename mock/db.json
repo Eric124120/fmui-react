@@ -1,0 +1,43 @@
+{
+  "issues": [
+    {
+      "id": 101,
+      "text": "something is not right"
+    },
+    {
+      "id": 102,
+      "text": "crash on login"
+    }
+  ],
+  "total": {
+    "data": {
+      "exchange_count": "10",
+      "share_count": "23",
+      "patent_count": "7",
+      "article_count": "37",
+      "exchangeRecords": []
+    },
+    "success": true
+  },
+  "businessArea": {
+    "140100": "太原市",
+    "140101": "太原市"
+  },
+  "news": [
+    {
+      "id": 1,
+      "title": "曹县宣布昨日晚间登日成功",
+      "date": "2016-08-12"
+    },
+    {
+      "id": 2,
+      "title": "长江流域首次发现海豚",
+      "date": "2016-08-12"
+    },
+    {
+      "title": "12`11211",
+      "date": "2016-12-10T08:09:47.109Z",
+      "id": 3
+    }
+  ]
+}
