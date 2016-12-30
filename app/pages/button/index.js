@@ -2,16 +2,32 @@
  * Created by huangchengwen on 16/12/27.
  */
 import React from 'react'
-import {Button} from '../../../packages'
+import ReactDom from 'react-dom'
+import {Button, Toast} from '../../../packages'
 import './button.scss'
 
 export default class ButtonDom extends React.Component {
+
+	constructor(props) {
+
+		super(props);
+		this.state = {
+			toastShow: true
+		}
+
+		this.showToast = () => {
+
+
+		}
+	}
+
+
 
 	render() {
 		return (
 			<div>
 				<div className="ml-flexbox">
-					<Button size="large">default</Button>
+					<Button size="large" onClick={this.showToast}>default</Button>
 				</div>
 				<div className="ml-flexbox">
 					<Button size="large" type="white-orange">white-orange</Button>

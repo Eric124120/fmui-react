@@ -1,0 +1,47 @@
+.ml-toast {
+	font-size: 0;
+	position: fixed;
+	max-width: 80%;
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.7);
+	color: #fff;
+	box-sizing: border-box;
+	text-align: center;
+	z-index: 1000;
+	transition: opacity .3s linear;
+
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	&-icon {
+		display: inline-block;
+		width: 36px;
+		height: 36px;
+
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		&.icon-toast-success {
+			background-image: url(./images/icon-success.png);
+		}
+		&.icon-toast-fail {
+			background-image: url(./images/icon-fail.png);
+		}
+		&.icon-toast-network {
+			background-image: url(./images/icon-network.png);
+		}
+	}
+
+	&-text {
+		font-size: 16px;
+		line-height: 22px;
+		display: block;
+		text-align: center;
+	}
+
+	&-pop-enter,
+	&-pop-leave-active {
+		opacity: 0;
+	}
+
+}

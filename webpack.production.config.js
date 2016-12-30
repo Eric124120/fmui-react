@@ -9,7 +9,6 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin('./css/[name]_[hash:8].css');
 
 module.exports = {
-	devtool: 'eval-source-map',
 	entry: {
 		js: __dirname + "/app/main.js",
 		vendor: [
@@ -33,10 +32,6 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				test: /\.json$/,
-				loader: "json"
-			},
-			{
 				test: /\.js[x]?$/,
 				exclude: /node_modules/,
 				loader: 'babel'
@@ -56,6 +51,11 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			favicon:'./app/images/favicon.ico', //favicon路径
 			template: __dirname + "/app/index.html"
+		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				'NODE_ENV': JSON.stringify('production')
+			}
 		}),
 		// 引用模块单独打包（业务内容改变，还会重新打包，后期优化）
 		new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
