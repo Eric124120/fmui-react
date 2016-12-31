@@ -1,3 +1,28 @@
+@import '../base/helper/css3';
+@import '../base/helper/function';
+@-webkit-keyframes rotate-loading {
+	0% {
+		@include rotate(0deg);
+	}
+	50% {
+		@include rotate(180deg);
+	}
+	100% {
+		@include rotate(360deg);
+	}
+}
+@keyframes rotate-loading {
+	0% {
+		@include rotate(0deg);
+	}
+	50% {
+		@include rotate(180deg);
+	}
+	100% {
+		@include rotate(360deg);
+	}
+}
+
 .ml-toast {
 	font-size: 0;
 	position: fixed;
@@ -29,6 +54,11 @@
 		}
 		&.icon-toast-network {
 			background-image: url(./images/icon-network.png);
+		}
+		&.icon-toast-loading {
+			background-image: url(./images/icon-loading.png);
+
+			@include animation(rotate-loading linear 2.6s infinite);
 		}
 	}
 

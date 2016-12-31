@@ -12,67 +12,49 @@ let singleton = null;
 
 export default class Toast extends React.Component {
 
-	static propTypes = {
-		type: React.PropTypes.oneOf(['success', 'fail', 'network', 'normal', 'loading']),
-		show: React.PropTypes.bool,
-		message: React.PropTypes.string,
-		modal: React.PropTypes.bool,
-		duration: React.PropTypes.number,
-		autoClose: React.PropTypes.bool,
-		showFunc: React.PropTypes.func,
-		hideFunc: React.PropTypes.func
-	};
-
-	static defaultProps = {
-		type: 'normal',
-		show: false,
-		message: '操作成功',
-		modal: true,
-		duration: 3000,
-		autoClose: false,
-		showFunc: null,
-		hideFunc: null
-
-	};
-
-
-	update(settings) {
-		//this.state.show = true//settings.show;
-		this.setState({
-			show: true
-		})
+	componentDidUpdate() {
+		this.state.autoClose && setTimeout(() => {
+			this.destroy();
+		}, this.state.duration);
 	}
 
+	show(settings) {
+		this.setState(settings);
 
+		return this;
+	}
+
+	destroy() {
+		if(singleton) {
+			var toastDOM = document.body.querySelector('#global-toast-id');
+			toastDOM && document.body.removeChild(toastDOM);
+			singleton = null;
+
+			'function' === typeof this.state.onClose && this.state.onClose();
+
+			return this;
+		}
+	}
 
 	constructor(props) {
 		super(props);
 		singleton = this;
 
 		this.state = {
-			show: false
-		}
-
-		this.componentDidMount = () => {
-			setTimeout(() => {
-				this.setState({
-					show: false
-				})
-			}, 2000);
-
-			'function' === this.props.showFunc &&
-			this.props.showFunc();
-		}
-
-		this.componentWillUnmount = () => {
-			'function' === this.props.hideFunc &&
-			this.props.hideFunc();
+			type: 'normal',
+			show: false,
+			message: '操作成功',
+			modal: true,
+			duration: 3000,
+			autoClose: true,
+			onClose: null
 		}
 
 	}
 
 	render() {
-		const { type, show, message, icon, modal, duration, autoClose, ...others } = this.props;
+		const {...others } = this.props;
+		const {type, show, message, modal, duration, autoClose} = this.state;
 
 		let IconComponent = '';
 
@@ -85,7 +67,7 @@ export default class Toast extends React.Component {
 		}
 
 		return (
-				<div style={{display: this.state.show ? 'block' : 'none'}}>
+				<div ref="toastDOM" style={{display: show ? 'block' : 'none'}}>
 					<Mask show={ modal }></Mask>
 					<div className="ml-toast" style={{ padding: type === 'normal' ? '10px' : '24px 24px 20px' }}>
 						{IconComponent}
@@ -97,13 +79,72 @@ export default class Toast extends React.Component {
 
 }
 
+function notice(message, type, duration, onClose) {
+	if (typeof duration === 'function') {
+		onClose = duration;
+		duration = 2500;
+	}
 
+	let toastInstance = Toast.init();
 
-Toast.getInstance = function(props) {
-	if (singleton)
-		return singleton;
+	return toastInstance.show({
+		type: type,
+		show: true,
+		message: message,
+		modal: true,
+		duration: duration,
+		autoClose: type !== 'loading',
+		onClose: onClose
+	});
+}
 
-	render(<Toast show={true}/>,
-			document.getElementById('global-toast-id'))
+Toast.init = function (settings) {
+	if(!singleton) {
+		let bodyDOM = document.body,
+			toastContainer = bodyDOM.querySelector('#global-toast-id');
+
+		if( !toastContainer ) {
+			toastContainer = document.createElement('div');
+			toastContainer.setAttribute('id', 'global-toast-id');
+			bodyDOM.appendChild(toastContainer);
+		}
+
+		render(
+				<Toast />,
+				document.getElementById('global-toast-id')
+		);
+	}
+
 	return singleton;
+
+}
+
+Toast.show = function (settings) {
+	let toastInstance = Toast.init();
+	return toastInstance.show(settings);
+}
+
+Toast.normal = (message, duration, onClose) => {
+	return notice(message, 'normal', duration, onClose);
+}
+
+Toast.success = (message, duration, onClose) => {
+	return notice(message, 'success', duration, onClose);
+}
+
+Toast.fail = (message, duration, onClose) => {
+	return notice(message, 'fail', duration, onClose);
+}
+
+Toast.network = (message, duration, onClose) => {
+	return notice(message, 'network', duration, onClose);
+}
+
+Toast.loading = (message, duration, onClose) => {
+	return notice(message, 'loading', duration, onClose);
+}
+
+Toast.destroy = () => {
+	let toastInstance = Toast.init();
+	return toastInstance.destroy()
 }

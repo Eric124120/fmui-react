@@ -9,7 +9,6 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin('./css/[name]_[hash:8].css');
 
 module.exports = {
-	devtool: 'eval-source-map',
 	entry: __dirname + "/app/main.js",
 	output: {
 		path: __dirname + "/dist",

@@ -12,27 +12,36 @@ export default class DemoToast extends React.Component {
 		toastTimer: null
 	};
 
-	componentWillUnmount() {
-		this.state.toastTimer && clearTimeout(this.state.toastTimer)
-	};
+
 
 	componentDidMount () {
-		/*render(<Toast show={this.state.showToast} type={this.state.toastType}/>,
-				document.getElementById('global-toast-id'))*/
+
+	}
+
+	componentWillUnmount () {
+		Toast.destroy();
 	}
 
 	handler(type) {
-		// this.setState({
-		// 	showToast: true,
-		// 	toastType: type
-		// });
-		//
-		// this.state.toastTimer = setTimeout(()=> {
-		// 	this.setState({showToast: false});
-		// }, 2000);
-		let x = Toast.getInstance();
-		console.log(x);
-		x.update()
+		/*var t = Toast.show({
+			show: true,
+			type: type,
+			autoClose: type != 'loadding',
+			message: type,
+			onClose: function () {
+				console.log('函数回调', type);
+			}
+		});*/
+
+
+		var t = Toast[type](type, 2000, () => {console.log('函数回调', type)})
+
+
+		if(type == 'loading')
+			setTimeout(function () {
+				t.destroy();
+			},3000);
+
 	};
 
 	render() {
@@ -51,10 +60,8 @@ export default class DemoToast extends React.Component {
 					<Button size="large" type="white-orange" onClick={this.handler.bind(this, 'network')}>toast-network</Button>
 				</div>
 				<div className="ml-flexbox">
-					<Button size="large" type="orange-white">toast-loadding</Button>
+					<Button size="large" type="orange-white" onClick={this.handler.bind(this, 'loading')}>toast-loading</Button>
 				</div>
-
-
 			</div>
 		)
 	}
