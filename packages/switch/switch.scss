@@ -1,0 +1,49 @@
+@import '../base/helper/css3';
+
+.ml-switch {
+	display: inline-block;
+	height: 28px;
+	overflow: hidden;
+
+	&-checkbox {
+		position: absolute;
+		clip: rect(0,0,0,0);
+	}
+
+	&-label {
+		display: inline-block;
+		width: 48px;
+		height: 24px;
+		overflow: hidden;
+		line-height: 1;
+		border: 2px solid;
+		border-radius: 28px;
+		background-color: currentColor;
+		color: #cacaca;
+
+		&:before {
+			content: "";
+			display: block;
+			width: 24px;
+			height: 24px;
+			border-radius: 24px;
+			margin-left: 0;
+			background-color: #fff;
+			@include transition(margin-left ease-in .15s);
+		}
+	}
+
+	:checked+.ml-switch-label {
+		color: #ff552e;
+		&:before {
+			margin-left: 24px;
+		}
+	}
+
+	:disabled+.ml-switch-label {
+		color: #cacaca;
+		&:before {
+			background-color: #efefef;
+		}
+	}
+}
