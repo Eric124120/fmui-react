@@ -9,6 +9,7 @@ import Button from './pages/button'
 import DemoList from './pages/demoList'
 import DemeToast from './pages/demoToast'
 import DemoSwitch from './pages/demoSwitch'
+import DemoCheckbox from './pages/demoCheckbox'
 
 ReactDom.render(
 	(
@@ -17,6 +18,7 @@ ReactDom.render(
 			<Route path="/button" component={ Button }/>
 			<Route path="/toast" component={ DemeToast }/>
 			<Route path='/switch' component={ DemoSwitch }/>
+			<Route path='/checkbox' component={ DemoCheckbox }/>
 		</Router>
 	),
 	document.getElementById('app')
