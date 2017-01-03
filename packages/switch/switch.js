@@ -2,8 +2,6 @@
  * Created by huangchengwen on 16/12/31.
  */
 import React from 'react'
-import {render} from 'react-dom';
-import classNames from 'classnames';
 import './switch.scss'
 
 export default class Switch extends React.Component {

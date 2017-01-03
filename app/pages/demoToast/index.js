@@ -2,7 +2,6 @@
  * Created by huangchengwen on 16/12/29.
  */
 import React from 'react';
-import {render} from 'react-dom';
 import { Button, Toast } from '../../../packages';
 
 export default class DemoToast extends React.Component {
@@ -11,12 +10,6 @@ export default class DemoToast extends React.Component {
 		toastType: 'success',
 		toastTimer: null
 	};
-
-
-
-	componentDidMount () {
-
-	}
 
 	componentWillUnmount () {
 		Toast.destroy();
@@ -33,8 +26,16 @@ export default class DemoToast extends React.Component {
 			}
 		});*/
 
+		const toastMap = {
+			"normal": "这是一个通用的提示",
+			"success": "操作成功",
+			"fail": "操作失败",
+			"network": "网络异常",
+			"loading": "加载中...",
+		}
 
-		var t = Toast[type](type, 2000, () => {console.log('函数回调', type)})
+
+		var t = Toast[type](toastMap[type], 2000, () => {console.log('函数回调', type)})
 
 
 		if(type == 'loading')

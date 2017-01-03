@@ -10,6 +10,7 @@ import DemoList from './pages/demoList'
 import DemeToast from './pages/demoToast'
 import DemoSwitch from './pages/demoSwitch'
 import DemoCheckbox from './pages/demoCheckbox'
+import DemoModal from './pages/demoModal'
 
 ReactDom.render(
 	(
@@ -19,6 +20,7 @@ ReactDom.render(
 			<Route path="/toast" component={ DemeToast }/>
 			<Route path='/switch' component={ DemoSwitch }/>
 			<Route path='/checkbox' component={ DemoCheckbox }/>
+			<Route path='/modal' component={ DemoModal }/>
 		</Router>
 	),
 	document.getElementById('app')

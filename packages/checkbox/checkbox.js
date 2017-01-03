@@ -2,7 +2,6 @@
  * Created by huangchengwen on 17/1/1.
  */
 import React from 'react'
-import classnames from 'classnames'
 import './checkbox.scss'
 
 export default class Checkbox extends React.Component {

@@ -69,7 +69,7 @@ export default class Toast extends React.Component {
 		return (
 				<div ref="toastDOM" style={{display: show ? 'block' : 'none'}}>
 					<Mask show={ modal }></Mask>
-					<div className="ml-toast" style={{ padding: type === 'normal' ? '10px' : '24px 24px 20px' }}>
+					<div className="ml-toast" style={ type === 'normal' ? {  padding: '10px', width: '80%' } : {padding:'24px 24px 20px'}}>
 						{IconComponent}
 						<span className="ml-toast-text" style={{ paddingTop: type === 'normal' ? '0' : '8px' }}>{ message }</span>
 					</div>
@@ -98,7 +98,7 @@ function notice(message, type, duration, onClose) {
 	});
 }
 
-Toast.init = function (settings) {
+Toast.init = (settings) => {
 	if(!singleton) {
 		let bodyDOM = document.body,
 			toastContainer = bodyDOM.querySelector('#global-toast-id');
