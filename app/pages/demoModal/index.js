@@ -4,6 +4,9 @@
 import React from 'react'
 import { Button, Modal } from '../../../packages'
 
+
+const reactIcon = require('./react.png')
+
 export default class DemoDodal extends React.Component {
 	constructor(prop) {
 		super(prop);
@@ -17,20 +20,51 @@ export default class DemoDodal extends React.Component {
 		Modal.destroy();
 	}
 
-	handle() {
-		const modal = Modal.alert({title: "提示", content: "信息提示，内容哈哈哈", buttons: [
+	alert() {
+		const modal = Modal.alert({title: "提示标题", content: "内容提示两行行，内容提示两行行，内容提示两行行", buttons: [
 			{
-				text: "取消",
+				text: "知道了",
 				onClick: function () {
 					modal.destroy();
-					console.log('取消');
+					console.log('知道了');
+				}
+			}
+		]})
+	}
+
+	confirm() {
+		const modal = Modal.alert({title: "提示标题", content: "内容提示一行，最小高度145", buttons: [
+			{
+				text: "辅助操作",
+				onClick: function () {
+					modal.destroy();
+					console.log('辅助操作');
 				}
 			},
 			{
-				text: "确定",
+				text: "主操作",
 				onClick: function () {
 					modal.destroy();
-					console.log('确定');
+					console.log('主操作');
+				}
+			}
+		]})
+	}
+
+	iconConfirm() {
+		const modal = Modal.alert({icon: reactIcon,title: "提示标题", content: "内容提示一行，最小高度145,内容提示一行，最小高度145", buttons: [
+			{
+				text: "辅助操作",
+				onClick: function () {
+					modal.destroy();
+					console.log('辅助操作');
+				}
+			},
+			{
+				text: "主操作",
+				onClick: function () {
+					modal.destroy();
+					console.log('主操作');
 				}
 			}
 		]})
@@ -40,7 +74,13 @@ export default class DemoDodal extends React.Component {
 		return(
 			<div>
 				<div className="ml-flexbox">
-					<Button size="large" type="white-orange" onClick={this.handle}>showModal</Button>
+					<Button size="large" type="white-orange" onClick={this.alert}>alert</Button>
+				</div>
+				<div className="ml-flexbox">
+					<Button size="large" type="white-orange" onClick={this.confirm}>confirm</Button>
+				</div>
+				<div className="ml-flexbox">
+					<Button size="large" type="white-orange" onClick={this.iconConfirm}>iconConfirm</Button>
 				</div>
 			</div>
 		)
