@@ -1,9 +1,9 @@
 /**
  * Created by huangchengwen on 17/1/1.
  */
-import Checkbox from './checkbox'
-import AgreeItem from './agreeItem'
-import CheckboxItem from './checkboxItem'
+import Checkbox from './src/checkbox'
+import AgreeItem from './src/agreeItem'
+import CheckboxItem from './src/checkboxItem'
 
 Checkbox.AgreeItem = AgreeItem;
 Checkbox.CheckboxItem = CheckboxItem;

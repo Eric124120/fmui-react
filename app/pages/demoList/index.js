@@ -16,7 +16,8 @@ export default class DemoList extends React.Component {
 			{ toUrl: '/button', titleTxt: 'button' },
 			{ toUrl: '/checkbox', titleTxt: 'checkbox' },
 			{ toUrl: '/switch', titleTxt: 'switch' },
-			{ toUrl: '/modal', titleTxt: 'modal' }
+			{ toUrl: '/modal', titleTxt: 'modal' },
+			{ toUrl: '/search', titleTxt: 'search' }
 		]
 	};
 

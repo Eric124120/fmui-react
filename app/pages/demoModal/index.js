@@ -74,13 +74,13 @@ export default class DemoDodal extends React.Component {
 		return(
 			<div>
 				<div className="ml-flexbox">
-					<Button size="large" type="white-orange" onClick={this.alert}>alert</Button>
+					<Button size="large" type="white-orange" onTouchEnd={this.alert}>alert</Button>
 				</div>
 				<div className="ml-flexbox">
-					<Button size="large" type="white-orange" onClick={this.confirm}>confirm</Button>
+					<Button size="large" type="white-orange" onTouchEnd={this.confirm}>confirm</Button>
 				</div>
 				<div className="ml-flexbox">
-					<Button size="large" type="white-orange" onClick={this.iconConfirm}>iconConfirm</Button>
+					<Button size="large" type="white-orange" onTouchEnd={this.iconConfirm}>iconConfirm</Button>
 				</div>
 			</div>
 		)

@@ -49,19 +49,19 @@ export default class DemoToast extends React.Component {
 		return(
 			<div>
 				<div className="ml-flexbox">
-					<Button size="large" type="white-orange" onClick={this.handler.bind(this, 'normal')}>normal</Button>
+					<Button size="large" type="white-orange" onTouchEnd={this.handler.bind(this, 'normal')}>normal</Button>
 				</div>
 				<div className="ml-flexbox">
-					<Button size="large" type="white-orange" onClick={this.handler.bind(this, 'success')}>toast-success</Button>
+					<Button size="large" type="white-orange" onTouchEnd={this.handler.bind(this, 'success')}>toast-success</Button>
 				</div>
 				<div className="ml-flexbox">
-					<Button size="large" type="white-orange" onClick={this.handler.bind(this, 'fail')}>toast-fail</Button>
+					<Button size="large" type="white-orange" onTouchEnd={this.handler.bind(this, 'fail')}>toast-fail</Button>
 				</div>
 				<div className="ml-flexbox">
-					<Button size="large" type="white-orange" onClick={this.handler.bind(this, 'network')}>toast-network</Button>
+					<Button size="large" type="white-orange" onTouchEnd={this.handler.bind(this, 'network')}>toast-network</Button>
 				</div>
 				<div className="ml-flexbox">
-					<Button size="large" type="orange-white" onClick={this.handler.bind(this, 'loading')}>toast-loading</Button>
+					<Button size="large" type="orange-white" onTouchEnd={this.handler.bind(this, 'loading')}>toast-loading</Button>
 				</div>
 			</div>
 		)

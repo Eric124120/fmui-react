@@ -1,5 +1,5 @@
-@import '../base/helper/css3';
-@import '../base/helper/function';
+@import '../../base/helper/css3';
+@import '../../base/helper/function';
 @-webkit-keyframes rotate-loading {
 	0% {
 		@include rotate(0deg);
@@ -47,16 +47,16 @@
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
 		&.icon-toast-success {
-			background-image: url(./images/icon-success.png);
+			background-image: url(images/icon-success.png);
 		}
 		&.icon-toast-fail {
-			background-image: url(./images/icon-fail.png);
+			background-image: url(images/icon-fail.png);
 		}
 		&.icon-toast-network {
-			background-image: url(./images/icon-network.png);
+			background-image: url(images/icon-network.png);
 		}
 		&.icon-toast-loading {
-			background-image: url(./images/icon-loading.png);
+			background-image: url(images/icon-loading.png);
 
 			@include animation(rotate-loading linear 2.6s infinite);
 		}

@@ -4,7 +4,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import classNames from 'classnames'
-import Mask from '../mask'
+import Mask from '../../mask'
 import './modal.scss'
 
 let singleton = null;
