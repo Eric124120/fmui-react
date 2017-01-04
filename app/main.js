@@ -12,6 +12,7 @@ import DemoSwitch from './pages/demoSwitch'
 import DemoCheckbox from './pages/demoCheckbox'
 import DemoModal from './pages/demoModal'
 import DemoSearch from './pages/demoSearch'
+import DemoFlex from './pages/demoFlex'
 
 ReactDom.render(
 	(
@@ -23,6 +24,7 @@ ReactDom.render(
 			<Route path='/checkbox' component={ DemoCheckbox }/>
 			<Route path='/modal' component={ DemoModal }/>
 			<Route path='/search' component={ DemoSearch }/>
+			<Route path='/flex' component={ DemoFlex }/>
 		</Router>
 	),
 	document.getElementById('app')

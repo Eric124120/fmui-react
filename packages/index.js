@@ -7,6 +7,7 @@ import Switch from './switch'
 import Checkbox from './checkbox'
 import Modal from './modal'
 import Search from './search'
+import Flex from './flex'
 
 /***********样式加载***********/
 
@@ -18,5 +19,6 @@ export {
 	Switch,
 	Checkbox,
 	Modal,
-	Search
+	Search,
+	Flex
 }
