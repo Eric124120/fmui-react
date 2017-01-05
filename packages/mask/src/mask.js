@@ -7,29 +7,29 @@ export default class Mask extends React.Component {
 	static PropTypes = {
 		transparent: React.PropTypes.bool,
 		show: React.PropTypes.bool,
-		cancelFunc: React.PropTypes.func
+		maskClick: React.PropTypes.func
 	};
 
 	static defaultProps = {
 		transparent: false,
 		show: true,
-		cancelFunc: null
+		maskClick: null
 	};
 
 	constructor(props) {
 		super(props);
 
 		this.handler = () => {
-			const {cancelFunc} = this.props;
-			if('function' === typeof cancelFunc) {
-				cancelFunc();
+			const {maskClick} = this.props;
+			if('function' === typeof maskClick) {
+				maskClick();
 			}
 		}
 
 	}
 
 	render() {
-		const { show, transparent,cancelFunc, ...others } = this.props;
+		const { show, transparent, maskClick, ...others } = this.props;
 		const cls = classNames({
 			['ml-mask']: show,
 			['ml-mask-bkg']: show && !transparent

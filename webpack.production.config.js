@@ -62,7 +62,7 @@ module.exports = {
 		// 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
 		new webpack.optimize.OccurenceOrderPlugin(),
 		// 压缩JS和CSS
-		new webpack.optimize.UglifyJsPlugin(),
+		new webpack.optimize.UglifyJsPlugin({minimize: true}),
 		extractCSS // 分离CSS和JS文件
 	]
 }

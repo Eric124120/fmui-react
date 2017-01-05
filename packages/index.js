@@ -8,6 +8,7 @@ import Checkbox from './checkbox'
 import Modal from './modal'
 import Search from './search'
 import Flex from './flex'
+import ActionSheet from './actionsheet'
 
 /***********样式加载***********/
 
@@ -20,5 +21,6 @@ export {
 	Checkbox,
 	Modal,
 	Search,
-	Flex
+	Flex,
+	ActionSheet
 }
