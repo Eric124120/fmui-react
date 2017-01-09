@@ -133,6 +133,7 @@
 		.ml-list-arrow {
 			width: 24px;
 			height: 24px;
+			line-height: 24px;
 			overflow: hidden;
 
 			/**
@@ -223,11 +224,12 @@
 
 			/* 短信校验码 */
 			.captcha-sms {
-				width: 80px;
+				width: 83px;
 				height: 24px;
 				line-height: 24px;
 				color: #ff552e;
 				font-size: 12px;
+				padding-left: 14px;
 
 				&[disabled],
 				&.disabled {
@@ -249,11 +251,14 @@
 			}
 
 			&:before {
-				float: left;
+				position: absolute;
+				top: -50%;
 				content: "";
 				width: 1px;
-				height: 24px;
-				background-color: #ddd;
+				height: 200%;
+				-webkit-transform: scale(0.5, 0.5);
+				transform: scale(0.5, 0.5);
+				background-color: #F3F3F3;
 			}
 		}
 

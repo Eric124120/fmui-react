@@ -9,6 +9,7 @@ import Modal from './modal'
 import Search from './search'
 import Flex from './flex'
 import ActionSheet from './actionsheet'
+import Cell from './cell'
 
 /***********样式加载***********/
 
@@ -22,5 +23,6 @@ export {
 	Modal,
 	Search,
 	Flex,
-	ActionSheet
+	ActionSheet,
+	Cell
 }

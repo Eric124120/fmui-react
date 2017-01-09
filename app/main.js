@@ -14,6 +14,7 @@ import DemoModal from './pages/demoModal'
 import DemoSearch from './pages/demoSearch'
 import DemoFlex from './pages/demoFlex'
 import DemoActionSheet from './pages/demoActionSheet'
+import DemoForm from './pages/demoForm'
 
 ReactDom.render(
 	(
@@ -27,6 +28,7 @@ ReactDom.render(
 			<Route path='/search' component={ DemoSearch }/>
 			<Route path='/flex' component={ DemoFlex }/>
 			<Route path='/actionsheet' component={ DemoActionSheet }/>
+			<Route path='/form' component={ DemoForm }/>
 		</Router>
 	),
 	document.getElementById('app')
