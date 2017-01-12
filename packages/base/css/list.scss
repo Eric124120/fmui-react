@@ -99,7 +99,7 @@
 			@include ellipsis();
 
 			text-align: right;
-			padding-right: 4px;
+			padding-right: 16px;
 			line-height: 24px;
 
 			@include align-self(center);
@@ -131,10 +131,15 @@
 
 		/* Arrow 箭头 */
 		.ml-list-arrow {
-			width: 24px;
+			position: absolute;
+			top: 50%;
+			right: 14px;
+			width: 10px;
 			height: 24px;
 			line-height: 24px;
 			overflow: hidden;
+			margin-top: -12px;
+			pointer-events: none;
 
 			/**
 			 * 此处垂直居中亦可使用align-self
@@ -301,7 +306,7 @@
 
 .ml-list a.ml-list-item {
 	&:active {
-		background-color: #e4e4e4;
+		background-color: #F6F6F6;
 	}
 }
 

@@ -41,19 +41,18 @@
 	}
 
 	&-white-blue {
-		color: #0ae;
+		color: #37ACF4;
 		background-color: #fff;
-		border:1px solid #0ae;
+		border:1px solid #37ACF4;
 		&:active {
-			color: #fff;
-			background-color: #0091cb;
+			background-color: #f6f6f6;
 		}
 	}
 
 	&-blue-white {
 		color: #fff;
-		background-color: #0ae;
-		border:1px solid #0ae;
+		background-color: #37ACF4;
+		border:1px solid #37ACF4;
 		&:active {
 			background-color: #0091cb;
 		}
