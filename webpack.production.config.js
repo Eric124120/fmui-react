@@ -5,21 +5,18 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractCSS = new ExtractTextPlugin('./css/[name]_[hash:8].css');
 
 module.exports = {
 	entry: {
 		main: __dirname + "/app/main.js",
 		vendor: ['react', 'classnames', 'react-router', 'react-dom'],
-		common: __dirname + "/packages/index.js"
+		common: __dirname + "/packages/index.js",
 	},
 	output: {
 		path: __dirname + "/dist",
-		filename: "[name].[hash:8].min.js",
+		filename: "[name].[hash:8].js",
 		chunkFilename: '[name].[chunkhash:8].chunk.js'
 	},
-
 	/*
 	 * Loaders配置
 	 * test：一个匹配loaders所处理的文件的拓展名的正则表达式（必须）
@@ -36,7 +33,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/i,
-				loader: extractCSS.extract(['css','sass?postcss'])
+				loader: 'style!css!sass?modules!autoprefixer'
 			},
 			{
 				test: /\.(png|jpg)$/,
@@ -44,7 +41,6 @@ module.exports = {
 			}
 		]
 	},
-	postcss:[ require('autoprefixer') ],
 	plugins: [
 		new HtmlWebpackPlugin({
 			favicon:'./app/images/favicon.ico', //favicon路径
@@ -63,7 +59,6 @@ module.exports = {
 		// 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
 		new webpack.optimize.OccurenceOrderPlugin(),
 		// 压缩JS和CSS
-		new webpack.optimize.UglifyJsPlugin({minimize: true}),
-		extractCSS // 分离CSS和JS文件
+		new webpack.optimize.UglifyJsPlugin({minimize: true})
 	]
 }
