@@ -10,16 +10,13 @@ module.exports = {
 	entry: {
 		main: __dirname + "/app/main.js",
 		vendor: ['react', 'classnames', 'react-router', 'react-dom'],
-		common: __dirname + "/packages/index.js"
+		common: __dirname + "/packages/index.js",
 	},
 	output: {
 		path: __dirname + "/dist",
-		filename: "[name].[hash:8].js"
+		filename: "[name].[hash:8].js",
+		chunkFilename: '[name].[chunkhash:8].chunk.js'
 	},
-	externals: {
-		"common": __dirname + "/packages/index.js"
-	},
-
 	/*
 	 * Loaders配置
 	 * test：一个匹配loaders所处理的文件的拓展名的正则表达式（必须）
@@ -36,7 +33,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/i,
-				loader: 'style!css!sass?modules!autoprefixer'
+				loader: extractCSS.extract(['css','sass?postcss'])
 			},
 			{
 				test: /\.(png|jpg)$/,
@@ -44,7 +41,7 @@ module.exports = {
 			}
 		]
 	},
-
+	postcss:[ require('autoprefixer') ],
 	plugins: [
 		new HtmlWebpackPlugin({
 			favicon:'./app/images/favicon.ico', //favicon路径

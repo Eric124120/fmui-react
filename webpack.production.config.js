@@ -10,18 +10,16 @@ const extractCSS = new ExtractTextPlugin('./css/[name]_[hash:8].css');
 
 module.exports = {
 	entry: {
-		js: __dirname + "/app/main.js",
-		vendor: [
-			'react',
-			'classnames',
-			'react-router',
-			'react-dom'
-		],
+		main: __dirname + "/app/main.js",
+		vendor: ['react', 'classnames', 'react-router', 'react-dom'],
+		common: __dirname + "/packages/index.js"
 	},
 	output: {
 		path: __dirname + "/dist",
-		filename: "build_[hash:8].js"
+		filename: "[name].[hash:8].min.js",
+		chunkFilename: '[name].[chunkhash:8].chunk.js'
 	},
+
 	/*
 	 * Loaders配置
 	 * test：一个匹配loaders所处理的文件的拓展名的正则表达式（必须）
@@ -38,7 +36,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/i,
-				loader: extractCSS.extract(['css','sass'])
+				loader: extractCSS.extract(['css','sass?postcss'])
 			},
 			{
 				test: /\.(png|jpg)$/,
@@ -46,7 +44,7 @@ module.exports = {
 			}
 		]
 	},
-
+	postcss:[ require('autoprefixer') ],
 	plugins: [
 		new HtmlWebpackPlugin({
 			favicon:'./app/images/favicon.ico', //favicon路径
@@ -58,7 +56,10 @@ module.exports = {
 			}
 		}),
 		// 引用模块单独打包（业务内容改变，还会重新打包，后期优化）
-		new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+		new webpack.optimize.CommonsChunkPlugin({
+			names: ['vendor', 'common'],
+			chunks: ['main', 'common']
+		}),
 		// 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
 		new webpack.optimize.OccurenceOrderPlugin(),
 		// 压缩JS和CSS
