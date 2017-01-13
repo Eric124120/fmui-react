@@ -2,7 +2,7 @@
  * Created by huangchengwen on 17/1/1.
  */
 import React from 'react'
-import { Checkbox } from '../../../packages'
+import Checkbox from '../../../packages/checkbox'
 
 const AgreeItem = Checkbox.AgreeItem;
 const CheckboxItem = Checkbox.CheckboxItem;

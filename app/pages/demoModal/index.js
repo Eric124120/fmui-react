@@ -2,7 +2,9 @@
  * Created by huangchengwen on 17/1/3.
  */
 import React from 'react'
-import { Button, Modal } from '../../../packages'
+import Button from '../../../packages/button'
+import Modal from '../../../packages/modal'
+
 
 
 const reactIcon = require('./react.png')

@@ -2,8 +2,7 @@
  * Created by huangchengwen on 16/12/27.
  */
 import React from 'react'
-import ReactDom from 'react-dom'
-import {Button, Toast} from '../../../packages'
+import Button from '../../../packages/button'
 import './button.scss'
 
 export default class ButtonDom extends React.Component {

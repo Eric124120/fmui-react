@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cell } from '../../../packages';
+import Cell from '../../../packages/cell';
 
 const { CellBody,
 		CellFooter,

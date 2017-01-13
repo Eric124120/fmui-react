@@ -2,7 +2,7 @@
  * Created by huangchengwen on 17/1/4.
  */
 import React from 'react'
-import { Flex } from '../../../packages'
+import Flex from '../../../packages/flex'
 
 const FlexItem = Flex.FlexItem;
 

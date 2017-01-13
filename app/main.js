@@ -5,31 +5,84 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Router, Route, hashHistory, Redirect} from 'react-router'
 
-import Button from './pages/button'
-import DemoList from './pages/demoList'
-import DemeToast from './pages/demoToast'
-import DemoSwitch from './pages/demoSwitch'
-import DemoCheckbox from './pages/demoCheckbox'
-import DemoModal from './pages/demoModal'
-import DemoSearch from './pages/demoSearch'
-import DemoFlex from './pages/demoFlex'
-import DemoActionSheet from './pages/demoActionSheet'
-import DemoForm from './pages/demoForm'
+const rootRouter = [
+	{
+		path: '/',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoList').default)
+			}, 'DemoList')
+		}
+	}, {
+		path: '/button',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/button').default)
+			}, 'DemoButton')
+		}
+	}, {
+		path: '/actionsheet',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoActionSheet').default)
+			}, 'DemoActionsheet')
+		}
+	}, {
+		path: '/checkbox',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoCheckbox').default)
+			}, 'DemoCheckbox')
+		}
+	}, {
+		path: '/flex',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoFlex').default)
+			}, 'DemoFlex')
+		}
+	}, {
+		path: '/form',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoForm').default)
+			}, 'DemoForm')
+		}
+	}, {
+		path: '/modal',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoModal').default)
+			}, 'DemoModal')
+		}
+	}, {
+		path: '/search',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoSearch').default)
+			}, 'DemoSearch')
+		}
+	}, {
+		path: '/switch',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoSwitch').default)
+			}, 'DemoSwitch')
+		}
+	}, {
+		path: '/toast',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoToast').default)
+			}, 'DemoToast')
+		}
+	}
+
+]
 
 ReactDom.render(
 	(
-		<Router history={hashHistory}>
-			<Route path="/" component={ DemoList }></Route>
-			<Route path="/button" component={ Button }/>
-			<Route path="/toast" component={ DemeToast }/>
-			<Route path='/switch' component={ DemoSwitch }/>
-			<Route path='/checkbox' component={ DemoCheckbox }/>
-			<Route path='/modal' component={ DemoModal }/>
-			<Route path='/search' component={ DemoSearch }/>
-			<Route path='/flex' component={ DemoFlex }/>
-			<Route path='/actionsheet' component={ DemoActionSheet }/>
-			<Route path='/form' component={ DemoForm }/>
-		</Router>
+		<Router history={hashHistory} routes={ rootRouter }></Router>
 	),
 	document.getElementById('app')
 );

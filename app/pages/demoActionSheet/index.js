@@ -2,7 +2,9 @@
  * Created by huangchengwen on 17/1/5.
  */
 import React from 'react'
-import {Button, Flex, ActionSheet} from '../../../packages'
+import Button from '../../../packages/button'
+import Flex from '../../../packages/flex'
+import ActionSheet from '../../../packages/actionsheet'
 
 export default class DemoActionSheet extends React.Component {
 	constructor(prop) {
