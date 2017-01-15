@@ -1,7 +1,6 @@
 /**
  * Created by huangchengwen on 17/1/1.
  */
-import React from 'react'
 import Checkbox from './checkbox'
 
 export default class agreeItem extends React.Component {

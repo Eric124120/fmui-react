@@ -1,7 +1,6 @@
 /**
  * Created by huangchengwen on 16/12/27.
  */
-import React from 'react';
 import classNames from 'classnames';
 import './button.scss'
 

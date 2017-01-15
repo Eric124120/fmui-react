@@ -1,10 +1,11 @@
 /**
  * Created by huangchengwen on 16/12/26.
  */
-import React from 'react';
-import ReactDom from 'react-dom';
-import { Router, Route, hashHistory, Redirect} from 'react-router'
 
+const hashHistory = ReactRouter.hashHistory;
+const Router = ReactRouter.Router;
+
+console.log(ReactRouter)
 const rootRouter = [
 	{
 		path: '/',
@@ -80,7 +81,7 @@ const rootRouter = [
 
 ]
 
-ReactDom.render(
+ReactDOM.render(
 	(
 		<Router history={hashHistory} routes={ rootRouter }></Router>
 	),

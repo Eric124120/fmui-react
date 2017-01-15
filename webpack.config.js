@@ -5,14 +5,16 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractCSS = new ExtractTextPlugin('./css/[name]_[hash:8].css');
 
 module.exports = {
-	entry: __dirname + "/app/main.js",
+	entry: {
+		main: __dirname + "/app/main.js",
+		common: __dirname + "/packages/index.js",
+	},
 	output: {
 		path: __dirname + "/dist",
-		filename: "build_[hash:8].js"
+		filename: "[name].[hash:8].js",
+		chunkFilename: '[name].[chunkhash:8].chunk.js'
 	},
 	/*
 	 * Loaders配置
@@ -34,7 +36,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/i,
-				loader: extractCSS.extract(['css','sass'])
+				loader: 'style!css!sass?modules!autoprefixer'
 			},
 			{
 				test: /\.(png|jpg)$/,
@@ -47,8 +49,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			favicon:'./app/images/favicon.ico', //favicon路径
 			template: __dirname + "/app/index.html"
-		}),
-		extractCSS // 将css独立出来
+		})
 	],
 
 	/*

@@ -1,7 +1,6 @@
 /**
  * Created by huangchengwen on 17/1/3.
  */
-import React from 'react'
 import Search from '../../../packages/search'
 
 export default class DemoSearch extends React.Component {

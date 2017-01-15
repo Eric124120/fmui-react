@@ -1,8 +1,6 @@
 /**
  * Created by huangchengwen on 17/1/3.
  */
-import React from 'react'
-import classNames from 'classNames'
 import './search.scss'
 
 export default class Search extends React.Component {

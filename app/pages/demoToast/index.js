@@ -1,9 +1,6 @@
 /**
  * Created by huangchengwen on 16/12/29.
  */
-import React from 'react';
-
-
 const Button = require('../../../packages/button').default
 const Toast = require('../../../packages/toast').default
 

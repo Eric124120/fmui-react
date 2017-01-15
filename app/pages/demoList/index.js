@@ -1,9 +1,7 @@
 /**
  * Created by huangchengwen on 16/12/28.
  */
-import React from 'react'
-import { Link } from 'react-router'
-
+const Link = ReactRouter.Link
 
 export default class DemoList extends React.Component {
 	static propTypes = {

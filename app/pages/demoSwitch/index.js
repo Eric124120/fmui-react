@@ -1,8 +1,6 @@
 /**
  * Created by huangchengwen on 17/1/1.
  */
-import React from 'react';
-import {render} from 'react-dom';
 import Switch from '../../../packages/switch';
 
 export default class DemoSwitch extends React.Component {

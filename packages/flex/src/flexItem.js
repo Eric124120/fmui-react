@@ -1,8 +1,6 @@
 /**
  * Created by huangchengwen on 17/1/4.
  */
-import React from 'react';
-
 export default class FlexItem extends React.Component {
 	constructor(prop) {
 		super(prop)

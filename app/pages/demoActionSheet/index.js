@@ -1,7 +1,6 @@
 /**
  * Created by huangchengwen on 17/1/5.
  */
-import React from 'react'
 import Button from '../../../packages/button'
 import Flex from '../../../packages/flex'
 import ActionSheet from '../../../packages/actionsheet'

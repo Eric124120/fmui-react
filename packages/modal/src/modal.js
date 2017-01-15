@@ -1,8 +1,6 @@
 /**
  * Created by huangchengwen on 17/1/2.
  */
-import React from 'react'
-import { render } from 'react-dom'
 import classNames from 'classnames'
 import Mask from '../../mask'
 import './modal.scss'
@@ -117,7 +115,7 @@ Modal.init = () => {
 			bodyDOM.appendChild(modalContainer);
 		}
 
-		render(
+		ReactDOM.render(
 				<Modal />,
 				document.getElementById('global-modal-id')
 		);

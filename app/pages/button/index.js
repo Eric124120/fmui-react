@@ -1,7 +1,6 @@
 /**
  * Created by huangchengwen on 16/12/27.
  */
-import React from 'react'
 import Button from '../../../packages/button'
 import './button.scss'
 

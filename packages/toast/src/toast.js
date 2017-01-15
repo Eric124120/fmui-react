@@ -1,8 +1,6 @@
 /**
  * Created by huangchengwen on 16/12/28.
  */
-import React from 'react';
-import {render} from 'react-dom';
 import classNames from 'classnames';
 import Mask from '../../mask';
 import './toast.scss'
@@ -109,7 +107,7 @@ Toast.init = (settings) => {
 			bodyDOM.appendChild(toastContainer);
 		}
 
-		render(
+		ReactDOM.render(
 				<Toast />,
 				document.getElementById('global-toast-id')
 		);

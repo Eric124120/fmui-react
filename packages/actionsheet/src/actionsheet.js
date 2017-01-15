@@ -1,8 +1,6 @@
 /**
  * Created by huangchengwen on 17/1/5.
  */
-import React from 'react'
-import { render } from 'react-dom'
 import classnames from 'classnames'
 import Mask from '../../mask'
 
@@ -121,7 +119,7 @@ ActionSheet.init = (title, actionMenus, cancelFun) => {
 		}
 
 
-		render(
+		ReactDOM.render(
 				<ActionSheet actionMenus={actionMenus} cancelFun={cancelFun}/>,
 				document.getElementById('global-actionsheet-id')
 		);

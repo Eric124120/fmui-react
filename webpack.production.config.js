@@ -9,7 +9,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: {
 		main: __dirname + "/app/main.js",
-		vendor: ['react', 'classnames', 'react-router', 'react-dom'],
 		common: __dirname + "/packages/index.js",
 	},
 	output: {
@@ -53,8 +52,8 @@ module.exports = {
 		}),
 		// 引用模块单独打包（业务内容改变，还会重新打包，后期优化）
 		new webpack.optimize.CommonsChunkPlugin({
-			names: ['vendor', 'common'],
-			chunks: ['main', 'common']
+			names: ['common'],
+			chunks: ['main']
 		}),
 		// 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
 		new webpack.optimize.OccurenceOrderPlugin(),
