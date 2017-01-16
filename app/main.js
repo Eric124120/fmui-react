@@ -5,7 +5,6 @@
 const hashHistory = ReactRouter.hashHistory;
 const Router = ReactRouter.Router;
 
-console.log(ReactRouter)
 const rootRouter = [
 	{
 		path: '/',
@@ -76,6 +75,13 @@ const rootRouter = [
 			require.ensure([], (require) => {
 				cb(null, require('./pages/demoToast').default)
 			}, 'DemoToast')
+		}
+	}, {
+		path: '/tab',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoTab').default)
+			}, 'DemoTab')
 		}
 	}
 
