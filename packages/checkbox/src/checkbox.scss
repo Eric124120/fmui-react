@@ -1,6 +1,7 @@
 .ml-checkbox {
 	position: relative;
 	display: inline-block;
+	font-size: 14px;
 
 	// checkbox
 	input {
@@ -8,7 +9,7 @@
 		width: 100%;
 		height: 100%;
 
-		&+.ml-icon-checkbox {
+		&+.ml-normal-checkbox {
 			display: inline-block;
 			width: 20px;
 			height: 20px;
@@ -18,7 +19,7 @@
 		}
 
 		// 选中状态
-		&:checked+.ml-icon-checkbox {
+		&:checked+.ml-normal-checkbox {
 			border-color: #ff552e;
 			background-color: #ff552e;
 
@@ -37,9 +38,31 @@
 		}
 
 		// 默认不能取消选中
-		&:disabled:checked+.ml-icon-checkbox {
+		&:disabled:checked+.ml-normal-checkbox {
 			border-color: #ccc;
 			background-color: #ccc;
+		}
+
+
+		/*
+		 * stylesheet = rect
+		 */
+		&+.ml-rect-checkbox {
+			display: inline-block;
+			width: 80px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			background: #F6F6F6;
+			border-radius: 100px;
+			border: 1px solid #F6F6F6;
+		}
+
+		// rect 的选中状态
+		&:checked+.ml-rect-checkbox {
+			background: #FFF8F7;
+			color: #FF552E;
+			border: 1px solid #FF552E;
 		}
 	}
 

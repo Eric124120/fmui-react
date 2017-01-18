@@ -1,4 +1,3 @@
-import classNames from 'classnames'
 import Search from '../../search'
 import './tab.scss'
 

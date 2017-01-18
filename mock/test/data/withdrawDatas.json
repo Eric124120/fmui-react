@@ -1,0 +1,61 @@
+{
+	"resultCode": 1,
+	"resultMsg": "操作成功",
+	"content": [
+		{
+			"customerName": "张三提现1",
+			"info": "补件影像",
+			"status": "补件中",
+			"businessMarket": "北京花乡旧机动车交易市场",
+			"businessManager": "客户经理 赵四",
+			"businessStatus": "释放",
+			"company": "北京达信旧机动车有限公司(自有)",
+			"register": "2017-01-16"
+		}, {
+			"customerName": "张三提现2",
+			"info": "补件影像/补件其他",
+			"status": "补件中",
+			"businessMarket": "北京花乡旧机动车交易市场",
+			"businessManager": "客户经理 赵四",
+			"businessStatus": "释放",
+			"company": "北京达信旧机动车有限公司(自有)",
+			"register": "2017-01-16"
+		}, {
+			"customerName": "张三提现3",
+			"info": "补件影像/补件其他",
+			"status": "补件中",
+			"businessMarket": "北京花乡旧机动车交易市场",
+			"businessManager": "客户经理 赵四",
+			"businessStatus": "释放",
+			"company": "北京达信旧机动车有限公司(自有)",
+			"register": "2017-01-16"
+		}, {
+			"customerName": "张三提现4",
+			"info": "补件影像/补件其他",
+			"status": "补件中",
+			"businessMarket": "北京花乡旧机动车交易市场",
+			"businessManager": "客户经理 赵四",
+			"businessStatus": "释放",
+			"company": "北京达信旧机动车有限公司(自有)",
+			"register": "2017-01-16"
+		}, {
+			"customerName": "张三提现5",
+			"info": "补件影像/补件其他",
+			"status": "补件中",
+			"businessMarket": "北京花乡旧机动车交易市场",
+			"businessManager": "客户经理 赵四",
+			"businessStatus": "释放",
+			"company": "北京达信旧机动车有限公司(自有)",
+			"register": "2017-01-16"
+		}, {
+			"customerName": "张三提现6",
+			"info": "补件影像/补件其他",
+			"status": "补件中",
+			"businessMarket": "北京花乡旧机动车交易市场",
+			"businessManager": "客户经理 赵四",
+			"businessStatus": "释放",
+			"company": "北京达信旧机动车有限公司(自有)",
+			"register": "2017-01-16"
+		}
+	]
+}

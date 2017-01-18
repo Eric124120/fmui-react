@@ -1,4 +1,5 @@
 import Cell from '../../../packages/cell';
+import CheckBox from '../../../packages/checkbox'
 
 const { CellBody,
 		CellFooter,
@@ -63,6 +64,14 @@ export default class DemoForm extends React.Component {
 							</select>
 						</CellItemControl>
 						<CellItemArrow direction="down"></CellItemArrow>
+					</CellItem>
+					<CellItem>
+						<CellItemLabel>性别</CellItemLabel>
+						<CellItemControl>
+							<CheckBox type="radio" name="sex" value="0" stylesheet="rect" label="男"/>
+							<CheckBox type="radio" name="sex" value="1" stylesheet="rect" label="女"
+							style={{'margin-left': '10px'}}/>
+						</CellItemControl>
 					</CellItem>
 				</CellBody>
 				<CellHeader>list信息</CellHeader>

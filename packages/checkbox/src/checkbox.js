@@ -9,7 +9,8 @@ export default class Checkbox extends React.Component {
 	}
 
 	static propTypes = {
-		type: React.PropTypes.string,
+		type: React.PropTypes.oneOf(['radio', 'checkbox']),
+		stylesheet: React.PropTypes.oneOf(['normal', 'rect', 'protocol']),
 		name: React.PropTypes.string,
 		checkboxVal: React.PropTypes.string,
 		disabled: React.PropTypes.bool,
@@ -19,6 +20,7 @@ export default class Checkbox extends React.Component {
 
 	static defaultProps = {
 		type: 'checkbox',
+		stylesheet: 'normal',
 		name: 'checkbox',
 		checkboxVal: '',
 		disabled: false,
@@ -27,8 +29,9 @@ export default class Checkbox extends React.Component {
 	}
 
 	render() {
-		var { type, name, checkboxVal, disabled, checked, label, ...others } = this.props;
-		const labelDOM = label ? <label className="ml-checkbox-label">{label}</label> : '';
+		var { type, stylesheet, name, checkboxVal, disabled, checked, label, ...others } = this.props;
+		const labelDOM = label && stylesheet != 'rect' ? <label className="ml-checkbox-label">{label}</label> : '';
+
 		return(
 			<div className="ml-checkbox" {...others}>
 				<input type={type}
@@ -36,7 +39,7 @@ export default class Checkbox extends React.Component {
 				       value={checkboxVal}
 				       disabled={disabled}
 				       defaultChecked={checked}/>
-				<span className="ml-icon-checkbox"></span>
+				<span className={ "ml-" + stylesheet +"-checkbox" }>{stylesheet == 'rect' ? label : ''}</span>
 				{labelDOM}
 			</div>
 		)
