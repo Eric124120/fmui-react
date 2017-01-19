@@ -23,14 +23,14 @@ export default class Tab extends React.Component {
 
 	titleCls(index) {
 		return index === this.state.currentIndex ?
-				'ml-tab-title-item selected' :
-				"ml-tab-title-item";
+				'ml-tabs-tab selected' :
+				"ml-tabs-tab";
 	}
 
 	itemCls(index) {
 		return index === this.state.currentIndex ?
-				'ml-tab-content-item selected' :
-				"ml-tab-content-item";
+				'ml-tabs-panel selected' :
+				"ml-tabs-panel";
 	}
 
 	render() {
@@ -39,8 +39,8 @@ export default class Tab extends React.Component {
 
 
 		return(
-			<div className="ml-tab" {...others} index={index}>
-				<div className="ml-tab-title">
+			<div className="ml-tabs" {...others} index={index}>
+				<div className="ml-tabs-nav">
 					{children.map( (title, idx) => {
 						return(
 							<div key={"title_" + idx} className={this.titleCls(idx)} onClick={this.handlSelect.bind(this, idx)}>
@@ -53,7 +53,7 @@ export default class Tab extends React.Component {
 					searchHandle &&
 					<Search searchSubmit={searchHandle}/>
 				}
-				<div className="ml-tab-content">
+				<div className="ml-tabs-content">
 					{children.map( (item, idx) => {
 						return(
 							<div key={"content_" + idx} className={this.itemCls(idx)}>

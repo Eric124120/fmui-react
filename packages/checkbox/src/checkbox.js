@@ -29,11 +29,11 @@ export default class Checkbox extends React.Component {
 	}
 
 	render() {
-		var { type, stylesheet, name, checkboxVal, disabled, checked, label, ...others } = this.props;
+		var { type, stylesheet, name, checkboxVal, disabled, checked, label, className, ...others } = this.props;
 		const labelDOM = label && stylesheet != 'rect' ? <label className="ml-checkbox-label">{label}</label> : '';
 
 		return(
-			<div className="ml-checkbox" {...others}>
+			<div className={"ml-checkbox " + className} {...others}>
 				<input type={type}
 				       name={name}
 				       value={checkboxVal}
