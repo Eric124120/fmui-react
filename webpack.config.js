@@ -36,7 +36,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/i,
-				loader: 'style!css!sass?modules!autoprefixer'
+				loader: 'style!css!sass?modules!postcss-loader'
 			},
 			{
 				test: /\.(png|jpg)$/,
