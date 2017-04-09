@@ -1,12 +1,13 @@
+import { Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import './mask.scss'
 
-export default class Mask extends React.Component {
+export default class Mask extends Component {
 
 	static PropTypes = {
-		transparent: React.PropTypes.bool,
-		show: React.PropTypes.bool,
-		maskClick: React.PropTypes.func
+		transparent: PropTypes.bool,
+		show: PropTypes.bool,
+		maskClick: PropTypes.func
 	};
 
 	static defaultProps = {

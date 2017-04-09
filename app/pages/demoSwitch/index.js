@@ -1,9 +1,10 @@
 /**
  * Created by huangchengwen on 17/1/1.
  */
+import { Component } from 'react'
 import Switch from '../../../packages/switch';
 
-export default class DemoSwitch extends React.Component {
+export default class DemoSwitch extends Component {
 
 	change1(e) {
 		console.log(e.target.checked)

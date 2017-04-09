@@ -1,9 +1,10 @@
 /**
  * Created by huangchengwen on 17/1/3.
  */
+import { Component, PropTypes } from 'react';
 import './search.scss'
 
-export default class Search extends React.Component {
+export default class Search extends Component {
 	constructor(prop){
 		super(prop)
 
@@ -13,7 +14,7 @@ export default class Search extends React.Component {
 	}
 
 	static propTypes = {
-		searchSubmit: React.PropTypes.func
+		searchSubmit: PropTypes.func
 	}
 
 	static defaultProps = {

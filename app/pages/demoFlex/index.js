@@ -1,11 +1,12 @@
 /**
  * Created by huangchengwen on 17/1/4.
  */
+import { Component } from 'react'
 import Flex from '../../../packages/flex'
 
 const FlexItem = Flex.FlexItem;
 
-export default class DemoFlex extends React.Component {
+export default class DemoFlex extends Component {
 	constructor(prop){
 		super(prop)
 	}

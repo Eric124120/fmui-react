@@ -1,6 +1,7 @@
 /**
  * Created by huangchengwen on 17/1/3.
  */
+import { Component } from 'react'
 import Button from '../../../packages/button'
 import Modal from '../../../packages/modal'
 
@@ -8,7 +9,7 @@ import Modal from '../../../packages/modal'
 
 const reactIcon = require('./react.png')
 
-export default class DemoDodal extends React.Component {
+export default class DemoDodal extends Component {
 	constructor(prop) {
 		super(prop);
 

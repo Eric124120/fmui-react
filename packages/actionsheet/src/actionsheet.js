@@ -1,13 +1,15 @@
 /**
  * Created by huangchengwen on 17/1/5.
  */
+import { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import classnames from 'classnames'
 import Mask from '../../mask'
 
 import './actionsheet.scss'
 
 let singleton = null;
-export default class ActionSheet extends React.Component {
+export default class ActionSheet extends Component {
 	constructor(prop) {
 		super(prop);
 		singleton = this;
@@ -18,9 +20,9 @@ export default class ActionSheet extends React.Component {
 	}
 
 	static propTypes = {
-		actionMenus: React.PropTypes.array,
-		cancelText: React.PropTypes.string,
-		cancelFun: React.PropTypes.func
+		actionMenus: PropTypes.array,
+		cancelText: PropTypes.string,
+		cancelFun: PropTypes.func
 	}
 
 	static defaultProps = {

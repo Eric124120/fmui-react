@@ -1,11 +1,12 @@
 /**
  * Created by huangchengwen on 17/1/1.
  */
+import { Component } from 'react'
 import Checkbox from '../../../packages/checkbox'
 const AgreeItem = Checkbox.AgreeItem;
 const CheckboxItem = Checkbox.CheckboxItem;
 
-export default class DemoCheckbox extends React.Component{
+export default class DemoCheckbox extends Component{
 	constructor(prop) {
 		super(prop);
 

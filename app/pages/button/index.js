@@ -1,10 +1,11 @@
 /**
  * Created by huangchengwen on 16/12/27.
  */
+import { Component } from 'react'
 import Button from '../../../packages/button'
 import './button.scss'
 
-export default class ButtonDom extends React.Component {
+export default class ButtonDom extends Component {
 
 	constructor(props) {
 

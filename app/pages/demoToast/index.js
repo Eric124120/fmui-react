@@ -1,10 +1,11 @@
 /**
  * Created by huangchengwen on 16/12/29.
  */
+import { Component } from 'react'
 const Button = require('../../../packages/button').default
 const Toast = require('../../../packages/toast').default
 
-export default class DemoToast extends React.Component {
+export default class DemoToast extends Component {
 	state = {
 		showToast: false,
 		toastType: 'success',

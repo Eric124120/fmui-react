@@ -1,9 +1,10 @@
 /**
  * Created by huangchengwen on 17/1/1.
  */
+import { Component, PropTypes} from 'react';
 import Checkbox from './checkbox'
 
-export default class checkboxItem extends React.Component {
+export default class checkboxItem extends Component {
 	constructor(prop) {
 		super(prop);
 
@@ -22,12 +23,12 @@ export default class checkboxItem extends React.Component {
 	}
 
 	static propTypes = {
-		type: React.PropTypes.string,
-		name: React.PropTypes.string,
-		checkboxVal: React.PropTypes.string,
-		disabled: React.PropTypes.bool,
-		checked: React.PropTypes.bool,
-		content: React.PropTypes.string
+		type: PropTypes.string,
+		name: PropTypes.string,
+		checkboxVal: PropTypes.string,
+		disabled: PropTypes.bool,
+		checked: PropTypes.bool,
+		content: PropTypes.string
 	}
 
 	render() {

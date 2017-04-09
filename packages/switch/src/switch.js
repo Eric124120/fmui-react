@@ -1,9 +1,10 @@
 /**
  * Created by huangchengwen on 16/12/31.
  */
+import { Component, PropTypes } from 'react';
 import './switch.scss'
 
-export default class Switch extends React.Component {
+export default class Switch extends Component {
 	constructor(prop) {
 		super(prop);
 
@@ -13,9 +14,9 @@ export default class Switch extends React.Component {
 	}
 
 	static propTypes = {
-		name: React.PropTypes.string,
-		disabled: React.PropTypes.bool,
-		onChange: React.PropTypes.func
+		name: PropTypes.string,
+		disabled: PropTypes.bool,
+		onChange: PropTypes.func
 	}
 
 	static defaultProps = {

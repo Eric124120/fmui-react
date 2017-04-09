@@ -1,3 +1,4 @@
+import { Component } from 'react'
 import Cell from '../../../packages/cell';
 import CheckBox from '../../../packages/checkbox'
 
@@ -14,7 +15,7 @@ const { CellBody,
 		CellItemLabel
 	} = Cell;
 
-export default class DemoForm extends React.Component {
+export default class DemoForm extends Component {
 	constructor(prop) {
 		super(prop)
 	}

@@ -1,11 +1,12 @@
 /**
  * Created by huangchengwen on 17/1/5.
  */
+import { Component } from 'react'
 import Button from '../../../packages/button'
 import Flex from '../../../packages/flex'
 import ActionSheet from '../../../packages/actionsheet'
 
-export default class DemoActionSheet extends React.Component {
+export default class DemoActionSheet extends Component {
 	constructor(prop) {
 		super(prop);
 

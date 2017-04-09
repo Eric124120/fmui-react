@@ -1,11 +1,11 @@
 /**
  * Created by huangchengwen on 17/2/27.
  */
-
+import { Component } from 'react'
 import HeaderNavBar from '../../../packages/headerNavBar'
 import ActionSheet from '../../../packages/actionsheet'
 
-export default class DemoSearch extends React.Component {
+export default class DemoSearch extends Component {
 	constructor(prop) {
 		super(prop);
 

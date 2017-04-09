@@ -1,6 +1,8 @@
 /**
  * Created by huangchengwen on 16/12/28.
  */
+import { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Mask from '../../mask';
 import './toast.scss'
@@ -8,7 +10,7 @@ import './toast.scss'
 
 let singleton = null;
 
-export default class Toast extends React.Component {
+export default class Toast extends Component {
 
 	componentDidUpdate() {
 		this.state.autoClose && setTimeout(() => {
