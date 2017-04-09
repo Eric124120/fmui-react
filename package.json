@@ -4,7 +4,7 @@
   "description": "A react + webpack demo",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --open --progress --port 1258",
+    "dev": "webpack-dev-server --inline --open --progress --port 3030",
     "mock": "imitator -p 9090 -f mock/mock.config.js",
     "mockdev": "npm run mock & npm run dev",
     "build": "webpack --config webpack.production.config.js --progress"

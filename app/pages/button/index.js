@@ -24,22 +24,22 @@ export default class ButtonDom extends React.Component {
 	render() {
 		return (
 			<div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" onClick={this.showToast}>default</Button>
 				</div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" type="white-orange">white-orange</Button>
 				</div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" type="orange-white">orange-white</Button>
 				</div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" type="white-blue">white-blue</Button>
 				</div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" type="blue-white">blue-white</Button>
 				</div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" disabled>disabled</Button>
 				</div>
 				<div className="btn-group">

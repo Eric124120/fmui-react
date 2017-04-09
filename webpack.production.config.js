@@ -40,6 +40,14 @@ module.exports = {
 			}
 		]
 	},
+	//externals 指定的依赖不会被webpack解析,但会成为bundle里的依赖
+	externals: {
+		"react": 'React',
+        "react-dom": 'ReactDOM',
+        "react-router": 'ReactRouter',
+        "redux": 'Redux',
+        "react-redux": 'ReactRedux'
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			favicon:'./app/images/favicon.ico', //favicon路径

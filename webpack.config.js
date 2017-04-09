@@ -7,6 +7,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+	 devtool: 'source-map', //debug时将包里的js对应到源码
 	entry: {
 		main: __dirname + "/app/main.js",
 		common: __dirname + "/packages/index.js",
@@ -44,7 +45,14 @@ module.exports = {
 			}
 		]
 	},
-
+	//externals 指定的依赖不会被webpack解析,但会成为bundle里的依赖
+	externals: {
+		"react": 'React',
+        "react-dom": 'ReactDOM',
+        "react-router": 'ReactRouter',
+        "redux": 'Redux',
+        "react-redux": 'ReactRedux'
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			favicon:'./app/images/favicon.ico', //favicon路径
@@ -69,7 +77,7 @@ module.exports = {
 		// 代理接口（用于mock或express）
 		proxy: {
 			'*': {
-				target: 'http://127.0.0.1:9090',
+				target: 'http://127.0.0.1:3031',
 				secure: false
 			}
 		}

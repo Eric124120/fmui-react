@@ -25,14 +25,14 @@ export default class DemoList extends React.Component {
 
 	render() {
 		return (
-			<div className="ml-list">
+			<div className="fm-list">
 				{
 					this.props.items.map(function (item, key) {
 						return (
-							<Link key={ key } to={ item.toUrl } className="ml-list-item">
-								<div className="ml-list-content">{ item.titleTxt }</div>
-								<div className="ml-list-arrow">
-									<span className="ml-icon-arrow-right"></span>
+							<Link key={ key } to={ item.toUrl } className="fm-list-item">
+								<div className="fm-list-content">{ item.titleTxt }</div>
+								<div className="fm-list-arrow">
+									<span className="fm-icon-arrow-right"></span>
 								</div>
 							</Link>
 						)

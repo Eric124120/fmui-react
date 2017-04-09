@@ -44,7 +44,7 @@ export default class Checkbox extends Component {
 				       value={value}
 				       disabled={disabled}
 				       onChange={onChange}
-				       checked={checked}
+				       defaultChecked={checked}
 				       {...others}/>
 				<span className={ "fm-" + stylesheet +"-checkbox" }>{stylesheet == 'rect' ? label : ''}</span>
 				{labelDOM}

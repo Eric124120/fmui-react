@@ -48,19 +48,19 @@ export default class DemoToast extends React.Component {
 	render() {
 		return(
 			<div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" type="white-orange" onTouchEnd={this.handler.bind(this, 'normal')}>normal</Button>
 				</div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" type="white-orange" onTouchEnd={this.handler.bind(this, 'success')}>toast-success</Button>
 				</div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" type="white-orange" onTouchEnd={this.handler.bind(this, 'fail')}>toast-fail</Button>
 				</div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" type="white-orange" onTouchEnd={this.handler.bind(this, 'network')}>toast-network</Button>
 				</div>
-				<div className="ml-flexbox">
+				<div className="fm-flexbox">
 					<Button size="large" type="orange-white" onTouchEnd={this.handler.bind(this, 'loading')}>toast-loading</Button>
 				</div>
 			</div>
