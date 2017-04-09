@@ -31,14 +31,14 @@ export default class checkboxItem extends React.Component {
 	}
 
 	render() {
-		const { type, name, checkboxVal, disabled, checked, content, ...others } = this.props;
+		const { type, name, value, disabled, checked, content, ...others } = this.props;
 
 		return(
-			<label className="ml-list-item" {...others}>
-				<div className="ml-list-content">{content}</div>
+			<label className="fm-list-item" {...others}>
+				<div className="fm-list-content">{content}</div>
 				<Checkbox type={type}
 				          name={name}
-				          checkboxVal={checkboxVal}
+				          value={value}
 				          disabled={disabled}
 				          checked={checked}/>
 			</label>

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-02-29 13:24:34
+ * @description  footer
+ */
+
+.fm-footer {
+    padding: 20px 14px 16px;
+
+    &.fixed {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        padding: 0;
+        width: 100%;
+    }
+}

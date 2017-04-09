@@ -37,14 +37,14 @@ export default class Switch extends React.Component {
 		const { name, disabled, ...others } = this.props;
 
 		return(
-			<label className="ml-switch">
+			<label className="fm-switch">
 				<input type="checkbox"
 				       name={name}
 				       disabled={disabled}
-				       className="ml-switch-checkbox"
+				       className="fm-switch-checkbox"
 				       checked={this.state.checked}
 				       onChange={(e) => this.onChange(e)}/>
-				<div className="ml-switch-label"></div>
+				<div className="fm-switch-label"></div>
 			</label>
 		)
 	}

@@ -1,7 +1,9 @@
 /**
  * Created by huangchengwen on 17/1/9.
  */
-export default class CellHeader extends React.Component {
+import { Component } from 'react';
+
+export default class CellHeader extends Component {
 	constructor(prop){
 		super(prop)
 	}
@@ -13,7 +15,7 @@ export default class CellHeader extends React.Component {
 	render() {
 		const {children, Component, ...others} = this.props;
 		return(
-			<Component className="ml-list-header" {...others}>
+			<Component className="fm-list-header" {...others}>
 				{ children }
 			</Component>
 		)

@@ -30,8 +30,8 @@ export default class Mask extends React.Component {
 	render() {
 		const { show, transparent, maskClick, ...others } = this.props;
 		const cls = classNames({
-			['ml-mask']: show,
-			['ml-mask-bkg']: show && !transparent
+			['fm-mask']: show,
+			['fm-mask-bkg']: show && !transparent
 		});
 
 		return (

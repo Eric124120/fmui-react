@@ -1,7 +1,9 @@
 /**
  * Created by huangchengwen on 17/1/9.
  */
-export default class CellItemArrow extends React.Component {
+import { Component } from 'react';
+
+export default class CellItemArrow extends Component {
 	constructor(prop){
 		super(prop)
 	}
@@ -14,8 +16,8 @@ export default class CellItemArrow extends React.Component {
 	render() {
 		const {direction, Component, ...others} = this.props;
 		return(
-			<Component className="ml-list-arrow" {...others}>
-				<span className={"ml-icon-arrow-" + direction}></span>
+			<Component className="fm-list-arrow" {...others}>
+				<span className={"fm-icon-arrow-" + direction}></span>
 			</Component>
 		)
 	}

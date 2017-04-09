@@ -35,14 +35,14 @@ export default class Search extends React.Component {
 		const { isSearch } = this.state;
 
 		return(
-			<div className="ml-search">
-				<div className="ml-search-input">
-					<div className="ml-icon-search-wrapper">
-						<span className="ml-icon-search"></span>
+			<div className="fm-search">
+				<div className="fm-search-input">
+					<div className="fm-icon-search-wrapper">
+						<span className="fm-icon-search"></span>
 					</div>
-					<input className="ml-search-text" type="search" placeholder="搜索" onFocus={this.searchFocus.bind(this)}/>
+					<input className="fm-search-text" type="search" placeholder="搜索" onFocus={this.searchFocus.bind(this)}/>
 				</div>
-				<div className="ml-search-btn" style={{display: isSearch ? 'block' : 'none'}}>
+				<div className="fm-search-btn" style={{display: isSearch ? 'block' : 'none'}}>
 					<button type="button" onClick={this.searchSubmit.bind(this)}>搜索</button>
 				</div>
 			</div>

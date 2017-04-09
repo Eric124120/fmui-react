@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
-@import '../helper/css3';
 
-%ml-icon-arrow {
+%fm-icon-arrow {
     display: inline-block;
     overflow: hidden;
     width: 10px;
@@ -24,42 +23,42 @@
 }
 
 // 上
-.ml-icon-arrow-up {
-    @extend %ml-icon-arrow;
+.fm-icon-arrow-up {
+    @extend %fm-icon-arrow;
 
     &:before {
         margin: 4px 0 0 1px;
-        @include transform(rotate(225deg));
+        transform: rotate(225deg);
     }
 }
 
 // 下
-.ml-icon-arrow-down {
-    @extend %ml-icon-arrow;
+.fm-icon-arrow-down {
+    @extend %fm-icon-arrow;
 
     &:before {
         margin-top: -1px;
         margin-left: 1px;
-        @include transform(rotate(45deg));
+        transform: rotate(45deg);
     }
 }
 
 // 左
-.ml-icon-arrow-left {
-    @extend %ml-icon-arrow;
+.fm-icon-arrow-left {
+    @extend %fm-icon-arrow;
 
     &:before {
         margin-top: 1px;
-        @include transform(rotate(135deg));
+        transform: rotate(135deg);
     }
 }
 
 // 右
-.ml-icon-arrow-right {
-    @extend %ml-icon-arrow;
+.fm-icon-arrow-right {
+    @extend %fm-icon-arrow;
 
     &:before {
         margin-top: 1px;
-        -webkit-transform: rotate(315deg);
+        transform: rotate(315deg);
     }
 }

@@ -1,7 +1,9 @@
 /**
  * Created by huangchengwen on 17/1/9.
  */
-export default class Cell extends React.Component {
+import { Component } from 'react';
+
+export default class Cell extends Component {
 	constructor(prop){
 		super(prop)
 	}
@@ -13,7 +15,7 @@ export default class Cell extends React.Component {
 	render() {
 		const {children, Component, ...others} = this.props;
 		return(
-			<Component className="ml-list" {...others}>
+			<Component className="fm-list" {...others}>
 				{ children }
 			</Component>
 		)

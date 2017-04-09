@@ -1,13 +1,14 @@
 /**
  * Created by huangchengwen on 17/1/2.
  */
+import { Component, PropTypes } from 'react';
 import classNames from 'classnames'
 import Mask from '../../mask'
 import './modal.scss'
 
 let singleton = null;
 
-export default class Modal extends React.Component {
+export default class Modal extends Component {
 	constructor(prop) {
 		super(prop);
 
@@ -25,16 +26,22 @@ export default class Modal extends React.Component {
 	}
 
 	static propTypes = {
-		show: React.PropTypes.bool,
-		icon: React.PropTypes.string,
-		title: React.PropTypes.string,
-		content: React.PropTypes.string,
-		buttons: React.PropTypes.array
+		show: PropTypes.bool,
+		icon: PropTypes.string,
+		title: PropTypes.string,
+		content: PropTypes.string,
+		buttons: PropTypes.array
 	}
 
 
 	show(options) {
 		this.setState(options);
+
+		return this;
+	}
+
+	hide() {
+		this.setState({show: false});
 
 		return this;
 	}
@@ -53,9 +60,9 @@ export default class Modal extends React.Component {
 		return this.state.buttons.map( (action, idx) => {
 			const { text, type, ...others } = action;
 			const cls = classNames({
-				"ml-modal-button": true,
-				"ml-modal-button-default": type === 'default',
-				"ml-modal-button-primary": type === 'primary'
+				"fm-modal-button": true,
+				"fm-modal-button-default": type === 'default',
+				"fm-modal-button-primary": type === 'primary'
 			})
 
 			return(
@@ -68,20 +75,20 @@ export default class Modal extends React.Component {
 
 	render() {
 		const {show, icon, title, content, buttons, ...others } = this.state;
-		const iconDOM = icon ? <i className="ml-modal-icon"><img src={icon} width="36" height="36"/></i> : '';
+		const iconDOM = icon ? <i className="fm-modal-icon"><img src={icon} width="36" height="36"/></i> : '';
 
 		return(
 				<div  style={ { display: show ? 'block' : 'none' } }>
 					<Mask show={ true }></Mask>
-					<div className="ml-modal" {...others}>
-						<div className="ml-modal-header">
+					<div className="fm-modal" {...others}>
+						<div className="fm-modal-header">
 							{iconDOM}
-							<h3 className="ml-modal-title">{title}</h3>
+							<h3 className="fm-modal-title">{title}</h3>
 						</div>
-						<div className="ml-modal-body">
-							<span className="ml-modal-content">{content}</span>
+						<div className="fm-modal-body">
+							<span className="fm-modal-content">{content}</span>
 						</div>
-						<div className="ml-modal-footer">
+						<div className="fm-modal-footer">
 							{this.renderButtons()}
 						</div>
 					</div>

@@ -1,21 +1,24 @@
 /**
  * Created by huangchengwen on 17/1/1.
  */
+import { Component, PropTypes} from 'react';
+import { findDOMNode } from 'react-dom';
+import cx from 'classnames';
 import './checkbox.scss'
 
-export default class Checkbox extends React.Component {
+export default class Checkbox extends Component {
 	constructor(prop) {
 		super(prop);
 	}
 
 	static propTypes = {
-		type: React.PropTypes.oneOf(['radio', 'checkbox']),
-		stylesheet: React.PropTypes.oneOf(['normal', 'rect', 'protocol']),
-		name: React.PropTypes.string,
-		checkboxVal: React.PropTypes.string,
-		disabled: React.PropTypes.bool,
-		checked: React.PropTypes.bool,
-		label: React.PropTypes.string
+		type: PropTypes.oneOf(['radio', 'checkbox']),
+		stylesheet: PropTypes.oneOf(['normal', 'rect', 'protocol']),
+		name: PropTypes.string,
+		checkboxVal: PropTypes.string,
+		disabled: PropTypes.bool,
+		checked: PropTypes.bool,
+		label: PropTypes.string
 	}
 
 	static defaultProps = {
@@ -29,17 +32,21 @@ export default class Checkbox extends React.Component {
 	}
 
 	render() {
-		var { type, stylesheet, name, checkboxVal, disabled, checked, label, className, ...others } = this.props;
-		const labelDOM = label && stylesheet != 'rect' ? <label className="ml-checkbox-label">{label}</label> : '';
+
+		var { type, stylesheet, name, value, disabled, checked, label, className, onChange, ...others } = this.props;
+		const labelDOM = label && stylesheet != 'rect' ? <label className="fm-checkbox-label">{label}</label> : '';
+		const cls = cx({ 'fm-checkbox': true, [className]: !!className});
 
 		return(
-			<div className={"ml-checkbox " + className} {...others}>
+			<div className={cls}>
 				<input type={type}
 				       name={name}
-				       value={checkboxVal}
+				       value={value}
 				       disabled={disabled}
-				       defaultChecked={checked}/>
-				<span className={ "ml-" + stylesheet +"-checkbox" }>{stylesheet == 'rect' ? label : ''}</span>
+				       onChange={onChange}
+				       checked={checked}
+				       {...others}/>
+				<span className={ "fm-" + stylesheet +"-checkbox" }>{stylesheet == 'rect' ? label : ''}</span>
 				{labelDOM}
 			</div>
 		)

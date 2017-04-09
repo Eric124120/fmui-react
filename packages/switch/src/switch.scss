@@ -1,6 +1,4 @@
-@import '../../base/helper/css3';
-
-.ml-switch {
+.fm-switch {
 	display: inline-block;
 	height: 28px;
 	overflow: hidden;
@@ -29,18 +27,18 @@
 			border-radius: 24px;
 			margin-left: 0;
 			background-color: #fff;
-			@include transition(margin-left ease-in .15s);
+			transition: margin-left ease-in .15s;
 		}
 	}
 
-	:checked+.ml-switch-label {
+	:checked+.fm-switch-label {
 		color: #ff552e;
 		&:before {
 			margin-left: 24px;
 		}
 	}
 
-	:disabled+.ml-switch-label {
+	:disabled+.fm-switch-label {
 		color: #cacaca;
 		&:before {
 			background-color: #efefef;

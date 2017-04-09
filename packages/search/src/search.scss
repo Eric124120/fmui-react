@@ -1,24 +1,20 @@
-@import '../../base/helper/css3';
-
-.ml-search {
-	@include display-flex();
+.fm-search {
+	display: flex;
 
 	padding: 7px 8px;
-
 	background: -webkit-gradient(linear,left top,left bottom,from(#d9d9e1),color-stop(0.5,#d9d9e1),color-stop(0.5,transparent)) bottom left no-repeat,#efeff4;
 	background: -webkit-linear-gradient(270deg,#d9d9e1,#d9d9e1,#d9d9e1) bottom left no-repeat,#efeff4;
-	background: linear-gradient(180deg,#d9d9e1,#d9d9e1,#d9d9e1) bottom left no-repeat,#efeff4;
+	background: linear-gradient(180deg,#d9d9e1,#d9d9e1,#d9d9e1) bottom left no-repeat,#f6f6f6;
 	-webkit-background-size: 100% 1px;
 
 
 	// 输入框
 	&-input {
 
-		@include display-flex();
+		display: flex;
+		flex: 1;
 
-		@include flex(1);
-
-		@include align-items(center);
+		align-items: center;
 
 		background-color: #fff;
 		border-radius: 5px;
@@ -28,17 +24,15 @@
 		line-height: 30px;
 
 		// input
-		.ml-search-text {
+		.fm-search-text {
+			flex: 1;
 			display: block;
-
-			@include flex(1);
-
 			font-size: 15px;
 			padding-left: 5px;
 		}
 
 		// icon-clear
-		.ml-search-clear {
+		.fm-search-clear {
 			margin-right: 5px;
 		}
 	}

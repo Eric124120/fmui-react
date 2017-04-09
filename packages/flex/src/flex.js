@@ -1,16 +1,23 @@
 /**
  * Created by huangchengwen on 17/1/4.
  */
-export default class Flex extends React.Component {
+import { Component } from 'react';
+import classNames from 'classnames';
+
+export default class Flex extends Component {
 	constructor(prop){
 		super(prop)
 
 	}
 
 	render() {
-		const props = this.props;
+		const { className, ...props} = this.props;
+		let cls = classNames({
+			['fm-flexbox']: true,
+			[className]: !!className
+		});
 		return(
-			<div className="ml-flexbox" {...props}>
+			<div className={cls} {...props}>
 				{ props.children }
 			</div>
 		)

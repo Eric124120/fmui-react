@@ -13,6 +13,7 @@ import CellItemContent from './src/cellItemContent'
 import CellItemControl from './src/cellItemControl'
 import CellItemExtra from './src/cellItemExtra'
 import CellItemLabel from './src/cellItemLabel'
+import CellItemTip from './src/cellItemTip'
 
 Cell.CellBody = CellBody;
 Cell.CellFooter = CellFooter;
@@ -25,6 +26,7 @@ Cell.CellItemContent = CellItemContent;
 Cell.CellItemControl = CellItemControl;
 Cell.CellItemExtra = CellItemExtra;
 Cell.CellItemLabel = CellItemLabel;
+Cell.CellItemTip = CellItemTip;
 
 
 export default Cell;

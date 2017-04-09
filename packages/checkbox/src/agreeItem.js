@@ -19,7 +19,7 @@ export default class agreeItem extends React.Component {
 	render() {
 
 		return(
-			<label className="ml-list-item">
+			<label className="fm-list-item">
 				<Checkbox type="checkbox" label="同意" checked={true}></Checkbox>
 				{
 					this.props.linkArray.map(function (item, key) {

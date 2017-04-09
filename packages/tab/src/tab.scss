@@ -1,16 +1,13 @@
-@import '../../base/helper/css3';
-
 %display-flex {
-	@include display-flex();
+	display: flex;
 }
 
 %flex {
-	@include flex(1);
+	flex: 1;
 }
 
-.ml-tabs {
+.fm-tabs {
 	position: relative;
-	overflow: hidden;
 	background-color: #fff;
 	padding-top: 44px;
 
@@ -32,8 +29,6 @@
 		/* 为行内元素在部分andriod机上不兼容设置 */
 
 		display: block;
-
-		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 		width: 100%;
 		height: 100%;
@@ -44,7 +39,6 @@
 		background: -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#e5e5e5)) bottom left no-repeat;
 		background: -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
 		background:         linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
-		-webkit-background-size: 100% 1px;
 		background-size: 100% 1px;
 
 		&.selected {
@@ -66,5 +60,31 @@
 		&.selected {
 			display: block;
 		}
+	}
+}
+
+.fm-tabs-bottom {
+	padding-top: 0;
+	.fm-tabs-nav {
+		top:auto;
+		bottom: 0;
+		z-index: 99;
+		border-top: 1px solid #efefef;
+
+		.fm-tabs-tab {
+			border-right: 1px solid #efefef;
+
+			&.selected {
+				border-bottom: 0;
+			}
+			:last-child {
+				border-right: 0;
+			}
+		}
+	}
+
+	.fm-tabs-content {
+		padding: 0;
+		padding-bottom: 44px;
 	}
 }

@@ -1,4 +1,4 @@
-.ml-btn {
+.fm-btn {
 	appearance: none;
 	-webkit-appearance: none;
 	border-radius: 4px;
@@ -86,10 +86,11 @@
 	&:disabled {
 		color: #fff;
 		background: #e6e6e6;
+		border: 1px solid #e6e6e6;
 	}
 
 }
 
-.ml-flexbox {
+.fm-flexbox {
 	padding: 14px;
 }

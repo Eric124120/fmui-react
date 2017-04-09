@@ -1,7 +1,9 @@
 /**
  * Created by huangchengwen on 17/1/9.
  */
-export default class CellItemContent extends React.Component {
+import { Component } from 'react';
+
+export default class CellItemContent extends Component {
 	constructor(prop){
 		super(prop)
 	}
@@ -14,7 +16,7 @@ export default class CellItemContent extends React.Component {
 		const {children, Component, ...others} = this.props;
 
 		return(
-				<Component className="ml-list-content" {...others}>
+				<Component className="fm-list-content" {...others}>
 					{ children }
 				</Component>
 		)

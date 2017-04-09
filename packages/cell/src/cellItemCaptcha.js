@@ -1,10 +1,9 @@
 /**
  * Created by huangchengwen on 17/1/9.
  */
-/**
- * Created by huangchengwen on 17/1/9.
- */
-export default class CellItemCaptcha extends React.Component {
+import { Component } from 'react';
+
+export default class CellItemCaptcha extends Component {
 	constructor(prop){
 		super(prop)
 	}
@@ -16,7 +15,7 @@ export default class CellItemCaptcha extends React.Component {
 	render() {
 		const {children, Component, ...others} = this.props;
 		return(
-			<Component className="ml-list-captcha" {...others}>
+			<Component className="fm-list-captcha" {...others}>
 				{children}
 			</Component>
 		)

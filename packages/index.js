@@ -10,6 +10,11 @@ import Search from './search'
 import Flex from './flex'
 import ActionSheet from './actionsheet'
 import Cell from './cell'
+import ScrollLoad from './scrollLoad'
+import PopupModal from './popupModal'
+import ButtonGroup from './buttonGroup'
+import Form from './form'
+import HeaderNavBar from './headerNavBar'
 
 /***********样式加载***********/
 
@@ -17,6 +22,7 @@ import './base/css/index.scss'
 
 export {
 	Button,
+	ButtonGroup,
 	Toast,
 	Switch,
 	Checkbox,
@@ -24,5 +30,9 @@ export {
 	Search,
 	Flex,
 	ActionSheet,
-	Cell
+	Cell,
+	ScrollLoad,
+	PopupModal,
+	Form,
+	HeaderNavBar
 }

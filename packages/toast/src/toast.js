@@ -58,7 +58,7 @@ export default class Toast extends React.Component {
 
 		if(!(type === 'normal')) {
 			const iconClass = classNames({
-				['ml-toast-icon']: true,
+				['fm-toast-icon']: true,
 				['icon-toast-' + type]: true
 			});
 			IconComponent = <i className={iconClass} ></i>;
@@ -67,9 +67,9 @@ export default class Toast extends React.Component {
 		return (
 				<div ref="toastDOM" style={{display: show ? 'block' : 'none'}}>
 					<Mask show={ modal }></Mask>
-					<div className="ml-toast" style={ type === 'normal' ? {  padding: '10px', width: '80%' } : {padding:'24px 24px 20px'}}>
+					<div className="fm-toast" style={ type === 'normal' ? {  padding: '10px', width: '80%' } : {padding:'24px 24px 20px'}}>
 						{IconComponent}
-						<span className="ml-toast-text" style={{ paddingTop: type === 'normal' ? '0' : '8px' }}>{ message }</span>
+						<span className="fm-toast-text" style={{ paddingTop: type === 'normal' ? '0' : '8px' }}>{ message }</span>
 					</div>
 				</div>
 		)

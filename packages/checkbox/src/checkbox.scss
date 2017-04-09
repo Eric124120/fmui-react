@@ -1,4 +1,4 @@
-.ml-checkbox {
+.fm-checkbox {
 	position: relative;
 	display: inline-block;
 	font-size: 14px;
@@ -9,7 +9,7 @@
 		width: 100%;
 		height: 100%;
 
-		&+.ml-normal-checkbox {
+		&+.fm-normal-checkbox {
 			display: inline-block;
 			width: 20px;
 			height: 20px;
@@ -19,7 +19,7 @@
 		}
 
 		// 选中状态
-		&:checked+.ml-normal-checkbox {
+		&:checked+.fm-normal-checkbox {
 			border-color: #ff552e;
 			background-color: #ff552e;
 
@@ -38,7 +38,7 @@
 		}
 
 		// 默认不能取消选中
-		&:disabled:checked+.ml-normal-checkbox {
+		&:disabled:checked+.fm-normal-checkbox {
 			border-color: #ccc;
 			background-color: #ccc;
 		}
@@ -47,11 +47,12 @@
 		/*
 		 * stylesheet = rect
 		 */
-		&+.ml-rect-checkbox {
+		&+.fm-rect-checkbox {
 			display: inline-block;
-			width: 80px;
+			/*width: 80px;
 			height: 30px;
-			line-height: 30px;
+			line-height: 30px;*/
+			padding: 8px 16px;
 			text-align: center;
 			background: #F6F6F6;
 			border-radius: 100px;
@@ -60,7 +61,7 @@
 		}
 
 		// rect 的选中状态
-		&:checked+.ml-rect-checkbox {
+		&:checked+.fm-rect-checkbox {
 			background: #FFF8F7;
 			color: #FF552E;
 			border: 1px solid #FF552E;
@@ -74,20 +75,20 @@
 }
 
 /* checkbox-agree */
-.ml-chekebox-agree {
+.fm-chekebox-agree {
 	padding: 10px 0;
 
-	.ml-checkbox {
+	.fm-checkbox {
 		position: relative;
 		display: inline-block;
 		width: auto;
 	}
 
-	.ml-checkbox-label {
+	.fm-checkbox-label {
 		padding-right: 10px;
 	}
 
-	input+.ml-icon-checkbox {
+	input+.fm-icon-checkbox {
 		position: relative;
 		display: inline-block;
 		margin: 0;

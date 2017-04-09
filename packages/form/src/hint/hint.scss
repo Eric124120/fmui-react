@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors      Benjamin (cuew1987@gmail.com)
+ * @link         https://github.com/benjamin-zuo
+ * @date         2016-03-22 11:37:56
+ * @description  Validate表单校验
+ */
+
+$borderColor: #fce5b8;
+$backgroundColor: #fcf9ec;
+
+
+/**
+ * 注意此处的.fm-validate-red为错误提示色，此不加上外层二.fm-list-control而使用！important;为了更好的解耦，比如区号和电话号码组合
+ */
+.fm-validate {
+    .fm-validate-red,
+    .fm-cityselect-placeholder {
+        color: #ff3c3c !important;
+    }
+
+    .fm-icon-clear {
+        background-color: #ff3c3c;
+    }
+
+    select.fm-validate{
+
+    }
+
+    &-tooltip {
+        position: absolute;
+        width: 100%;
+        padding: 0 14px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        left: 0;
+        top: 38px;
+        z-index: 1;
+
+        &-content {
+            border: 1px solid $borderColor;
+            background-color: $backgroundColor;
+            color: #ff8e33;
+            font-size: 12px;
+            text-align: center;
+            line-height: 24px; 
+        }
+
+        &-arrow {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            top: -2px;
+            border-left: 1px solid $borderColor;
+            border-top: 1px solid $borderColor;
+            transform: rotate(45deg);
+            background-color: $backgroundColor;
+        }
+    }
+}

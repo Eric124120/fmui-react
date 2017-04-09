@@ -1,29 +1,28 @@
-@import '../../base/helper/css3';
 @import '../../base/helper/function';
 @-webkit-keyframes rotate-loading {
 	0% {
-		@include rotate(0deg);
+		transform: rotate(0deg);
 	}
 	50% {
-		@include rotate(180deg);
+		transform: rotate(180deg);
 	}
 	100% {
-		@include rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
 @keyframes rotate-loading {
 	0% {
-		@include rotate(0deg);
+		transform: rotate(0deg);
 	}
 	50% {
-		@include rotate(180deg);
+		transform: rotate(180deg);
 	}
 	100% {
-		@include rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
 
-.ml-toast {
+.fm-toast {
 	font-size: 0;
 	position: fixed;
 	max-width: 80%;
@@ -58,7 +57,7 @@
 		&.icon-toast-loading {
 			background-image: url(images/icon-loading.png);
 
-			@include animation(rotate-loading linear 2.6s infinite);
+			animation: rotate-loading linear 2.6s infinite;
 		}
 	}
 

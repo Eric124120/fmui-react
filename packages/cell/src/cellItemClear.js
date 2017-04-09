@@ -1,10 +1,9 @@
 /**
  * Created by huangchengwen on 17/1/9.
  */
-/**
- * Created by huangchengwen on 17/1/9.
- */
-export default class CellItemClear extends React.Component {
+import { Component } from 'react';
+
+export default class CellItemClear extends Component {
 	constructor(prop){
 		super(prop)
 	}
@@ -19,8 +18,8 @@ export default class CellItemClear extends React.Component {
 		const {Component, ...others} = this.props;
 
 		return(
-			<Component className="ml-list-clear" {...others}>
-				<span className="ml-icon-clear"></span>
+			<Component className="fm-list-clear" {...others}>
+				<span className="fm-icon-clear"></span>
 			</Component>
 		)
 	}

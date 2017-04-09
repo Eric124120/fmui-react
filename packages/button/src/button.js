@@ -1,10 +1,11 @@
 /**
  * Created by huangchengwen on 16/12/27.
  */
+import { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import './button.scss'
 
-export default class Button extends React.Component {
+export default class Button extends Component {
 	static propTypes = {
 		disabled: React.PropTypes.bool,
 		type: React.PropTypes.string,
@@ -21,9 +22,9 @@ export default class Button extends React.Component {
 		const {type, icon, size, children, className, ...others} = this.props;
 		const Component = this.props.href ? 'a' : 'button';
 		const cls = classNames({
-			['ml-btn']: true,
-			['ml-btn-' + type]: type,
-			['ml-btn-' + size]: size,
+			['fm-btn']: true,
+			['fm-btn-' + type]: type,
+			['fm-btn-' + size]: size,
 			[className]: className
 		});
 

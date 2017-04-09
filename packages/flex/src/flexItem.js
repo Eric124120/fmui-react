@@ -1,7 +1,10 @@
 /**
  * Created by huangchengwen on 17/1/4.
  */
-export default class FlexItem extends React.Component {
+import { Component } from 'react';
+import classNames from 'classnames';
+
+export default class FlexItem extends Component {
 	constructor(prop) {
 		super(prop)
 	}
@@ -14,10 +17,14 @@ export default class FlexItem extends React.Component {
 	}
 
 	render() {
-		const {Component, children, ...others } = this.props;
+		const {Component, className, children, ...others } = this.props;
+		let cls = classNames({
+			['fm-flexbox-item']: true,
+			[className]: !!className
+		});
 
 		return(
-			<Component className="ml-flexbox-item" {...others}>
+			<Component className={cls} {...others}>
 				{ children }
 			</Component>
 		)

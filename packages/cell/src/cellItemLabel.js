@@ -1,7 +1,9 @@
 /**
  * Created by huangchengwen on 17/1/9.
  */
-export default class CellItemLabel extends React.Component {
+import { Component } from 'react';
+
+export default class CellItemLabel extends Component {
 	constructor(prop){
 		super(prop)
 	}
@@ -14,7 +16,7 @@ export default class CellItemLabel extends React.Component {
 		const {children, Component, ...others} = this.props;
 
 		return(
-				<Component className="ml-list-label" {...others}>
+				<Component className="fm-list-label" {...others}>
 					{ children }
 				</Component>
 		)

@@ -1,0 +1,36 @@
+.fm-modal-popup {
+	position: fixed;
+	z-index: 110;
+	bottom: 0;
+	left: 0;
+	background: #fff;
+	width: 100%;
+	min-height: 45%;
+	overflow: hidden;
+	transition: .2s;
+
+	box-sizing: border-box;
+
+	.fm-modal-cancel {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 999;
+		color: red;
+		font-size: 14px;
+		padding: 8px 20px;
+	}
+
+	.fm-modal-title {
+		text-align: center;
+		line-height: 22px;
+		font-size: 14px;
+		color: #333;
+		padding: 30px 14px 5px;
+		border-bottom: 1px solid #efefef;
+	}
+
+	.fm-modal-body {
+		padding: 5px 14px 15px;
+	}
+}

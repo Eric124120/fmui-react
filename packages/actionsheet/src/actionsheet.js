@@ -55,8 +55,8 @@ export default class ActionSheet extends React.Component {
 		return this.props.actionMenus.map(function (action, idx) {
 			const { text, current, ...others } = action;
 			const cls = classnames({
-				'ml-actionsheet-item': true,
-				'ml-actionsheet-item-current': current
+				'fm-actionsheet-item': true,
+				'fm-actionsheet-item-current': current
 			});
 
 			return(
@@ -79,19 +79,19 @@ export default class ActionSheet extends React.Component {
 	render() {
 
 		const cls = classnames({
-			'ml-actionsheet': true,
-			'ml-actionsheet-toggle': this.state.show
+			'fm-actionsheet': true,
+			'fm-actionsheet-toggle': this.state.show
 		});
 
 		return(
 			<div>
 				<Mask show={this.state.show} maskClick={this.hide.bind(this)}/>
 				<div className={cls}>
-					<div className="ml-actionsheet-menu">
+					<div className="fm-actionsheet-menu">
 						{ this.renderMenus() }
 					</div>
-					<div className="ml-actionsheet-cancel">
-						<div className="ml-actionsheet-item"
+					<div className="fm-actionsheet-cancel">
+						<div className="fm-actionsheet-item"
 						     onClick={this.actionSheetCancel.bind(this)}>
 							{this.props.cancelText}
 						</div>
