@@ -55,9 +55,9 @@
 			line-height: 1;
 			padding: 8px 16px;
 			text-align: center;
-			background: #F6F6F6;
+			background: #F8F8F8;
 			border-radius: 100px;
-			border: 1px solid #F6F6F6;
+			border: 1px solid #F8F8F8;
 			box-sizing: border-box;
 		}
 
@@ -66,6 +66,20 @@
 			background: #FFF8F7;
 			color: #FF552E;
 			border: 1px solid #FF552E;
+		}
+
+		// 不可编辑专题
+		&:disabled+.fm-rect-checkbox {
+			background: #F8F8F8;
+			color: #999999;
+			border: 1px solid #F8F8F8;
+		}
+
+		// 选中不可编辑状态
+		&:disabled:checked+.fm-rect-checkbox {
+			background: #f3f3f3;
+			color: #999999;
+			border: 1px solid #999999;
 		}
 	}
 

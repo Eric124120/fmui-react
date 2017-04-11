@@ -1,30 +1,50 @@
 /**
  * Created by huangchengwen on 17/1/1.
  */
+import React, {Component, PropTypes} from 'react'
 import Checkbox from './checkbox'
 
-export default class agreeItem extends React.Component {
+export default class agreeItem extends Component {
 	constructor(prop) {
 		super(prop);
+
+		this.state = {
+			checked: false
+		}
 	}
 
 	static defaultProps = {
-		linkArray: []
+		linkArray: [],
+		type: 'checkbox'
 	}
 
 	static propTypes = {
-		linkArray: React.PropTypes.array
+		linkArray: PropTypes.array,
+		type: PropTypes.oneOf(['radio', 'checkbox'])
 	}
+
+	handleChange(e) {
+		this.setState({
+			checked: e.target.checked
+		})
+	}
+
 
 	render() {
 
-		return(
+		const { type, linkArray } = this.props;
+
+		return (
 			<label className="fm-list-item">
-				<Checkbox type="checkbox" label="同意" checked={true}></Checkbox>
+				<Checkbox type={type}
+				          label="同意"
+				          checked={this.state.checked}
+				          onChange={this.handleChange.bind(this)}/>
 				{
-					this.props.linkArray.map(function (item, key) {
-						return(
-							<a key={key} href={item.url} target="_blank" style={{marginLeft: "5px", fontSize: "14px"}}>{item.text}</a>
+					linkArray.map(function (item, key) {
+						return (
+							<a key={key} href={item.url} target="_blank"
+							   style={{marginLeft: "5px", fontSize: "14px"}}>{item.text}</a>
 						)
 					})
 				}

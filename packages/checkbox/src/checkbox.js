@@ -1,8 +1,8 @@
 /**
  * Created by huangchengwen on 17/1/1.
  */
-import { Component, PropTypes} from 'react';
-import { findDOMNode } from 'react-dom';
+import {Component, PropTypes} from 'react';
+import {findDOMNode} from 'react-dom';
 import cx from 'classnames';
 import './checkbox.scss'
 
@@ -13,7 +13,7 @@ export default class Checkbox extends Component {
 
 	static propTypes = {
 		type: PropTypes.oneOf(['radio', 'checkbox']),
-		stylesheet: PropTypes.oneOf(['normal', 'rect', 'protocol']),
+		stylesheet: PropTypes.oneOf(['normal', 'rect']),
 		name: PropTypes.string,
 		checkboxVal: PropTypes.string,
 		disabled: PropTypes.bool,
@@ -33,20 +33,20 @@ export default class Checkbox extends Component {
 
 	render() {
 
-		var { type, stylesheet, name, value, disabled, checked, label, className, onChange, ...others } = this.props;
+		var {type, stylesheet, name, value, disabled, checked, label, className, onChange, ...others} = this.props;
 		const labelDOM = label && stylesheet != 'rect' ? <label className="fm-checkbox-label">{label}</label> : '';
-		const cls = cx({ 'fm-checkbox': true, [className]: !!className});
+		const cls = cx({'fm-checkbox': true, [className]: !!className});
 
-		return(
+		return (
 			<div className={cls}>
 				<input type={type}
 				       name={name}
 				       value={value}
 				       disabled={disabled}
 				       onChange={onChange}
-				       defaultChecked={checked}
+				       checked={checked}
 				       {...others}/>
-				<span className={ "fm-" + stylesheet +"-checkbox" }>{stylesheet == 'rect' ? label : ''}</span>
+				<span className={ "fm-" + stylesheet + "-checkbox" }>{stylesheet == 'rect' ? label : ''}</span>
 				{labelDOM}
 			</div>
 		)
