@@ -164,7 +164,6 @@
 
 		.fm-list-tip {
 			// 此处和fm-list-arrow等宽
-			width: 24px;
 			min-width: 24px;
 			text-align: center;
 			color: #999;
@@ -195,9 +194,10 @@
 				line-height: 24px;
 				width: 100%;
 				height: 24px;
+				flex: 1;
 
 				&:read-only, &:disabled {
-					color: #999;
+					opacity: 0.6;
 				}
 			}
 
@@ -209,12 +209,13 @@
 				color: #bdbdbd;
 				padding-left: 0px;
 				font-weight: normal;
+				flex: 1;
 				&.selected {
 					color: #333;
 				}
 
 				&:read-only, &:disabled {
-					color: #999;
+					opacity: 0.6;
 				}
 			}
 			/**

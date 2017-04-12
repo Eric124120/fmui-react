@@ -1,19 +1,18 @@
 import { Component } from 'react'
-import Cell from '../../../packages/cell';
 import CheckBox from '../../../packages/checkbox'
-
-const { CellBody,
-		CellFooter,
-		CellHeader,
-		CellItem,
-		CellItemArrow,
-		CellItemCaptcha,
-		CellItemClear,
-		CellItemContent,
-		CellItemControl,
-		CellItemExtra,
-		CellItemLabel
-	} = Cell;
+import Cell ,{
+	CellBody,
+	CellFooter,
+	CellHeader,
+	CellItem,
+	CellItemArrow,
+	CellItemCaptcha,
+	CellItemClear,
+	CellItemContent,
+	CellItemControl,
+	CellItemExtra,
+	CellItemLabel
+} from '../../../packages/cell';
 
 export default class DemoForm extends Component {
 	constructor(prop) {

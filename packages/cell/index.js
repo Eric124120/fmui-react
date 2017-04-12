@@ -15,18 +15,19 @@ import CellItemExtra from './src/cellItemExtra'
 import CellItemLabel from './src/cellItemLabel'
 import CellItemTip from './src/cellItemTip'
 
-Cell.CellBody = CellBody;
-Cell.CellFooter = CellFooter;
-Cell.CellHeader = CellHeader;
-Cell.CellItem = CellItem;
-Cell.CellItemArrow = CellItemArrow;
-Cell.CellItemCaptcha = CellItemCaptcha;
-Cell.CellItemClear = CellItemClear;
-Cell.CellItemContent = CellItemContent;
-Cell.CellItemControl = CellItemControl;
-Cell.CellItemExtra = CellItemExtra;
-Cell.CellItemLabel = CellItemLabel;
-Cell.CellItemTip = CellItemTip;
-
-
 export default Cell;
+
+export {
+	CellBody,
+	CellFooter,
+	CellHeader,
+	CellItem,
+	CellItemArrow,
+	CellItemCaptcha,
+	CellItemClear,
+	CellItemContent,
+	CellItemControl,
+	CellItemExtra,
+	CellItemLabel,
+	CellItemTip
+}

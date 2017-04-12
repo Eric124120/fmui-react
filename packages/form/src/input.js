@@ -3,14 +3,13 @@ import { findDOMNode } from 'react-dom';
 import cx from 'classnames';
 import rules from './utils/rules';
 import Base from './base';
-import Cell from '../../cell/index';
-import CheckBox from '../../checkbox/index'
-
-const {
+import Cell, {
     CellItemClear,
     CellItemControl,
     CellItemTip
-} = Cell;
+} from '../../cell/index';
+import CheckBox from '../../checkbox/index'
+
 
 export default class Input extends Base {
     static propTypes = {

@@ -88,6 +88,7 @@ export default class DemoCheckbox extends Component{
 				</div>
 				<div className="fm-list-body">
 					<CheckboxGroup checkboxData={checkboxData}
+					               className="paddin15"
 					               checkboxType='rect'
 					               checkedDefault={["1","2","4"]}
 					               checkboxName="ball2"/>
@@ -98,6 +99,7 @@ export default class DemoCheckbox extends Component{
 				</div>
 				<div className="fm-list-body">
 					<CheckboxGroup checkboxData={checkboxData1}
+					               className="paddin15"
 					               checkboxType='rect'
 					               checkedDefault={["1","2","4"]}
 					               checkboxName="ball3"/>
