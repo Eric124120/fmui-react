@@ -4,6 +4,7 @@
 import { Component } from 'react'
 import Form from '../../../packages/form'
 import Button from '../../../packages/button'
+import Toast from '../../../packages/toast'
 import {
 	AgreeItem,
 	CheckboxItem,
@@ -34,6 +35,16 @@ export default class DemoValidate extends Component{
 
 	}
 
+	onSubmit() {
+		var myForm = this.formName;
+
+		if(!myForm.validateForm()) {
+			Toast.normal('请完善信息', 2000);
+		}
+
+		console.log(myForm.serialize())
+	}
+
 	render() {
 
 		let sexData = [
@@ -50,7 +61,7 @@ export default class DemoValidate extends Component{
 
 		return (
 			<Cell>
-				<Form.components.Form>
+				<Form.components.Form ref={name => this.formName = name}>
 				<CellBody>
 					<CellItem>
 						<CellItemLabel>车架号/VIN</CellItemLabel>
@@ -160,7 +171,10 @@ export default class DemoValidate extends Component{
 				</CellBody>
 				</Form.components.Form>
 				<CellFooter>
-					<Button size="large" type="orange-white">提交</Button>
+					<Button size="large"
+					        type="orange-white"
+					        onClick={this.onSubmit.bind(this)}
+					>提交</Button>
 				</CellFooter>
 			</Cell>
 		)
