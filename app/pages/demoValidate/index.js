@@ -136,11 +136,11 @@ export default class DemoValidate extends Component{
 					</CellItem>
 					<CellItem>
 						<CellItemLabel>性别</CellItemLabel>
-						<RadioGroup radioData={sexData}
-						            radioName="sex"
+						<Form.components.Radio radioData={sexData}
+			                        validations={['required']}
+						            name="sex"
 						            radioType="rect"
 						            className="checkbox-container"
-						            checkedValue={1}
 						            radioClass="checkbox-container-item"/>
 					</CellItem>
 				</CellBody>
@@ -148,7 +148,8 @@ export default class DemoValidate extends Component{
 					选择你喜欢的球类 rect（多选）
 				</CellHeader>
 				<CellBody>
-					<CheckboxGroup checkboxData={ballData}
+					<Form.components.Checkbox checkboxData={ballData}
+		                           validations={['required']}
 					               className="paddin15"
 					               checkboxType='rect'
 					               checkedDefault={["1", "4"]}
@@ -158,10 +159,20 @@ export default class DemoValidate extends Component{
 					选择你喜欢的球类 cell（多选）
 				</CellHeader>
 				<CellBody>
-					<CheckboxGroup checkboxData={ballData}
+					<Form.components.Checkbox checkboxData={ballData}
+		                           validations={['required']}
 					               checkboxType='cell'
 					               checkedDefault={["1", "4"]}
-					               checkboxName="ball"/>
+					               checkboxName="ball2"/>
+				</CellBody>
+				<CellHeader>
+					选择你喜欢的球类 cell（多选）
+				</CellHeader>
+				<CellBody>
+					<Form.components.Checkbox checkboxData={ballData}
+		                           validations={['required']}
+					               checkboxType='cell'
+					               checkboxName="ball3"/>
 				</CellBody>
 				<CellBody>
 					<AgreeItem linkArray={[

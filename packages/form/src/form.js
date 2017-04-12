@@ -101,17 +101,11 @@ export default class Form extends Component {
     }
 
     register = (component) => {
+        let componentName = component.props.name ||
+                            component.props.radioName ||
+                            component.props.checkboxName;
 
-        // this.components[component.props.name] = component;
-        if(component.state.isCheckbox) {
-            if(!this.components[component.props.name]) {
-                this.components[component.props.name] = component;
-                this.components[component.props.name].others = []
-            }
-            this.components[component.props.name].others.push(component);
-        } else {
-            this.components[component.props.name] = component;
-        }
+        this.components[componentName] = component;
 
     };
 
@@ -274,6 +268,9 @@ function inputSelector(element) {
 }
 
 function input(element) {
+    // 过滤：radio、checkbox随机生成的值域和name为空的域
+    let flag = element.name && !/hidden_name_[0-9]*/.test(element.name)
+
     switch (element.type.toLowerCase()) {
         case 'number':
         case 'hidden':
@@ -282,10 +279,10 @@ function input(element) {
         case 'textarea':
         case 'date':
         case 'select-one':
-            return element.name ? {name:element.name, value:element.value} : false;
+            return flag ? {name:element.name, value:element.value} : false;
         case 'checkbox':
         case 'radio':
-            return element.name ? inputSelector(element) : false;
+            return flag ? inputSelector(element) : false;
     }
     return false;
 }

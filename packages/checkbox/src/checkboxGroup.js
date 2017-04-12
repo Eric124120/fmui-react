@@ -12,9 +12,12 @@ import Checkbox from '../../../packages/checkbox';
 export default class CheckboxGroup extends Component {
 	constructor(prop) {
 		super(prop);
+		// 生成随机name域（form 组件取值处理时会过滤掉，只会去隐藏域的值）
+		let timestamp = new Date().getTime();
 
 		this.state = {
-			checkedDefault: []
+			checkedDefault: [],
+			hiddenName: `hidden_name_${timestamp}`
 		}
 	}
 
@@ -24,7 +27,9 @@ export default class CheckboxGroup extends Component {
 		checkboxType: PropTypes.oneOf(['normal', 'rect', 'cell']),
 		checkboxClass: PropTypes.string,
 		onChange: PropTypes.fun,
-		checkedDefault: PropTypes.array
+		checkboxChange: PropTypes.fun,
+		checkedDefault: PropTypes.array,
+		validations: PropTypes.arrayOf(PropTypes.string)
 	}
 
 	static defaultProps = {
@@ -43,9 +48,12 @@ export default class CheckboxGroup extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+
 		if (nextProps.checkedDefault !== this.props.checkedDefault) {
 			this.setState({
-				checkedDefault: nextProps.checkedDefault
+				checkedDefault: 'string' === typeof nextProps.checkedDefault ?
+									nextProps.checkedDefault.split(',') :
+									nextProps.checkedDefault
 			});
 		}
 	}
@@ -53,7 +61,7 @@ export default class CheckboxGroup extends Component {
 	handleChange(e) {
 
 		const { value, checked } = e.target;
-		const { onChange } = this.props;
+		const { onChange, checkboxChange } = this.props;
 		let { checkedDefault } = this.state;
 
 		if(checked && checkedDefault.indexOf(value) == -1) {
@@ -64,15 +72,19 @@ export default class CheckboxGroup extends Component {
 
 		this.setState({
 			checkedDefault: checkedDefault
-		}, (e) => {
+		}, () => {
+
 			'function' === typeof onChange && onChange(e);
+			'function' === typeof checkboxChange &&
+					checkboxChange(Object.assign(e, {target: this.hiddenInput}));
+
 		});
 	}
 
 
 	render() {
-		const { checkboxData, checkboxName, checkboxType, checkboxClass, className, ...props } = this.props;
-		let { checkedDefault } = this.state;
+		const { checkboxData, checkboxName, checkboxType, checkboxClass, className, validations } = this.props;
+		let { checkedDefault, hiddenName } = this.state;
 
 
 
@@ -91,7 +103,7 @@ export default class CheckboxGroup extends Component {
 					       className={`fm-list-item ${checkboxCls}`}>
 						<div className="fm-list-content">{item.label}</div>
 						<Checkbox type='checkbox'
-						          name={checkboxName}
+						          name={hiddenName}
 						          value={item.value}
 						          disabled={item.disabled || false}
 						          checked={checkedDefault.indexOf(`${item.value}`) !== -1}
@@ -100,7 +112,7 @@ export default class CheckboxGroup extends Component {
 					<Checkbox type='checkbox'
 					          key={`${checkboxName}_${index}`}
 					          className={checkboxCls}
-					          name={checkboxName}
+					          name={hiddenName}
 					          stylesheet={checkboxType}
 					          label={item.label}
 					          value={item.value}
@@ -112,7 +124,12 @@ export default class CheckboxGroup extends Component {
 		);
 
 		return (
-			<div {...props} className={cls}>
+			<div className={cls}>
+				<input ref={name => this.hiddenInput = name}
+				       type="hidden"
+				       name={checkboxName}
+				       value={checkedDefault}
+				       validations={validations}/>
 				{component}
 			</div>
 		)

@@ -8,7 +8,6 @@ import Cell, {
     CellItemControl,
     CellItemTip
 } from '../../cell/index';
-import CheckBox from '../../checkbox/index'
 
 
 export default class Input extends Base {
@@ -30,16 +29,11 @@ export default class Input extends Base {
     constructor(props, context) {
         super(props, context);
 
-        const isCheckbox = !!(props.type === 'checkbox' || props.type === 'radio');
-        const checkboxValue = props.checked ? props.value : '';
-
         // TODO: Refactor conditions
         this.state = {
-            value: isCheckbox ? checkboxValue : props.value,
-            isChanged: isCheckbox ? props.checked : !!props.value,
-            isCheckbox,
-            isUsed: isCheckbox,
-            isChecked: isCheckbox ? !!props.checked : true,
+            value: props.value,
+            isChanged: !!props.value,
+            isUsed: false,
             isFocus: false
         };
 
@@ -60,11 +54,10 @@ export default class Input extends Base {
         const isInvalid = this.state.isUsed
             && this.state.isChanged
             && !!this.context.errors[this.props.name];
-        const value = this.state.isCheckbox ? this.props.value : this.state.value;
+        const value = this.state.value;
         const error = isInvalid && this.context.errors[this.props.name][0];
         let hint = null;
         let tip = null;
-        let component = null;
         let clear = null;
 
         if (isInvalid && isFocus) {
@@ -79,20 +72,9 @@ export default class Input extends Base {
             clear = <CellItemClear onClick={this.onClear}/>;
         }
 
-        if(this.state.isCheckbox) {
-            component = (
-                <CheckBox
-                    {...rest}
-                    className = {cx({[className]: !!className})}
-                    value={value}
-                    checked={this.state.isChecked}
-                    onChange={this.onChange}
-                    onBlur={this.onBlur}
-                    onFocus={this.onFocus}
-                    />
-            )
-        } else {
-            component = (
+
+
+        return (
 
             <CellItemControl className = {cx({
                 'fm-input-autoclear': isFocus,
@@ -105,7 +87,6 @@ export default class Input extends Base {
                         [className]: !!className,
                         'fm-validate-red': !!error
                     })}
-                    checked={this.state.isChecked}
                     onChange={this.onChange}
                     onBlur={this.onBlur}
                     onFocus={this.onFocus}
@@ -114,9 +95,6 @@ export default class Input extends Base {
                 {tip}
                 {hint}
             </CellItemControl>
-            )
-        }
-
-        return component;
+        );
     }
 }

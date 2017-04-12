@@ -20,11 +20,10 @@ class Base extends Component {
 
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.value !== this.props.value || nextProps.checked !== this.props.checked) {
+        if (nextProps.value !== this.props.value) {
             this.setState({
                 value: nextProps.value,
-                isChanged: true,
-                isChecked: nextProps.checked
+                isChanged: true
             }, () => {
                 this.context.validateState(this.props.name);
             });
@@ -37,34 +36,16 @@ class Base extends Component {
 
 
     onChange = (event) => {
-        // 防止type=radio的值没改变，也会触发onChage事件，造成的bug
-        if(this.props.type === 'radio' && this.state.isChecked) {
-            return false;
-        }
-        // type=radio，回显示bug
-        if(this.props.type === 'radio') {
-            let radioArray = this.context.components[this.props.name].others || [];
-            radioArray.map((item, index) => {
-                if(item.props.value !== this.props.value) {
-                    item.props.checked = false;
-                    item.state.isChecked = false;
-                }
-            })
-        }
 
         // TODO: Refactor conditions
-        const isChecked = this.state.isCheckbox ? !this.state.isChecked : true;
-        const checkboxValue = isChecked ? event.target.value : '';
-        const value = this.state.isCheckbox ? checkboxValue : event.target.value;
-
+        const value = event.target.value;
 
         event.persist();
 
         this.setState({
             value,
             isUsed: true,
-            isChanged: true,
-            isChecked
+            isChanged: true
         }, () => {
             this.context.validateState(this.props.name);
 
