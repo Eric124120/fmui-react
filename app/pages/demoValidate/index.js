@@ -174,6 +174,18 @@ export default class DemoValidate extends Component{
 					               checkboxType='cell'
 					               checkboxName="ball3"/>
 				</CellBody>
+				<CellHeader>
+					请输入多行文本 Textarea
+				</CellHeader>
+				<CellBody>
+					<Form.components.Textarea
+							containerClassName="text-area-container"
+							className="text-area"
+							name="textarea"
+							validations={['required']}
+							value="多行文本框"
+							placeholder="请输入多行文本"/>
+				</CellBody>
 				<CellBody>
 					<AgreeItem linkArray={[
 						{url: 'http://www.baidu.com', text: '协议一'},
