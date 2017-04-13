@@ -37,13 +37,14 @@ export default class PopupModal extends Component {
 		let titleDOM = null;
 		let cls = classNames({
 			['fm-modal-popup']: true,
+			['fm-modal-popup-toggle']: show,
 			[className]: !!className
 		});
 
 		if(title) titleDOM = (<h3 className="fm-modal-title">{title}</h3>);
 
 		return(
-			<div  style={ { display: show ? 'block' : 'none' } }>
+			<div>
 				<Mask show={ show } maskClick={onCancelPopup}></Mask>
 				<div className={cls} {...props}>
 					{titleDOM}

@@ -7,7 +7,8 @@
 	width: 100%;
 	min-height: 45%;
 	overflow: hidden;
-	transition: .2s;
+	transform: translate3d(0, 100%, 0);
+	transition: transform .3s ease;
 
 	box-sizing: border-box;
 
@@ -32,5 +33,9 @@
 
 	.fm-modal-body {
 		padding: 5px 14px 15px;
+	}
+
+	&.fm-modal-popup-toggle {
+		transform: translate3d(0, 0, 0);
 	}
 }
