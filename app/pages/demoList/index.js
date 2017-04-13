@@ -20,6 +20,7 @@ export default class DemoList extends Component {
 			{ toUrl: '/search', titleTxt: 'search' },
 			{ toUrl: '/flex', titleTxt: 'flex' },
 			{ toUrl: '/actionsheet', titleTxt: 'actionsheet' },
+			{ toUrl: '/popupmodal', titleTxt: 'popupmodal' },
 			{ toUrl: '/form', titleTxt: 'form' },
 			{ toUrl: '/validate', titleTxt: 'validate' },
 			{ toUrl: '/tab', titleTxt: 'tab' }

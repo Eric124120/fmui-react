@@ -28,6 +28,13 @@ const rootRouter = [
 			}, 'DemoActionsheet')
 		}
 	}, {
+		path: '/popupmodal',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoPopupModal'))
+			}, 'DemoPopupModal')
+		}
+	}, {
 		path: '/checkbox',
 		getComponent(nextState, cb) {
 			require.ensure([], (require) => {
