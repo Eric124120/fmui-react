@@ -5,6 +5,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanPlugin = require('clean-webpack-plugin'); //清理文件夹
 
 module.exports = {
 	entry: {
@@ -53,6 +54,11 @@ module.exports = {
 			favicon:'./app/images/favicon.ico', //favicon路径
 			template: __dirname + "/app/index.html"
 		}),
+		new CleanPlugin(['output'], {
+			"root": path.resolve(__dirname, './dist'),
+			verbose: true,
+			dry: false
+		}),
 		new webpack.DefinePlugin({
 			'process.env': {
 				'NODE_ENV': JSON.stringify('production')
@@ -66,6 +72,11 @@ module.exports = {
 		// 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
 		new webpack.optimize.OccurenceOrderPlugin(),
 		// 压缩JS和CSS
-		new webpack.optimize.UglifyJsPlugin({minimize: true})
+		new webpack.optimize.UglifyJsPlugin({
+			test: /(\.jsx|\.js)$/,
+			compress: {
+				warnings: false
+			}
+		})
 	]
 }

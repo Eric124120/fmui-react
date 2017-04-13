@@ -27,7 +27,7 @@ export default class ButtonDom extends Component {
 		return (
 			<div className="demo-button-container">
 				<div className="fm-flexbox">
-					<Button size="large" onClick={this.showToast}>default</Button>
+					<Button size="large" onClick={this.showToast}>default1</Button>
 				</div>
 				<div className="fm-flexbox">
 					<Button size="large" type="white-orange">white-orange</Button>
