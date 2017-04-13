@@ -52,7 +52,9 @@ export default class CheckboxGroup extends Component {
 		if (nextProps.checkedDefault !== this.props.checkedDefault) {
 			this.setState({
 				checkedDefault: 'string' === typeof nextProps.checkedDefault ?
+									nextProps.checkedDefault ?
 									nextProps.checkedDefault.split(',') :
+									[]:
 									nextProps.checkedDefault
 			});
 		}
@@ -128,7 +130,7 @@ export default class CheckboxGroup extends Component {
 				<input ref={name => this.hiddenInput = name}
 				       type="hidden"
 				       name={checkboxName}
-				       value={checkedDefault}
+				       value={checkedDefault.join(',')}
 				       validations={validations}/>
 				{component}
 			</div>

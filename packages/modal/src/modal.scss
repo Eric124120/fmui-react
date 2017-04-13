@@ -39,7 +39,7 @@
 	/* 尾部 */
 	&-footer {
 		display:flex;
-		background: linear-gradient(bottom,#e6e6e6 50%,transparent 50%);
+		background: linear-gradient(to bottom, #e6e6e6 50%, transparent 50%);
 		background-size:  100% 1px;
 		background-repeat: no-repeat;
 		background-position: top left;
@@ -55,7 +55,7 @@
 			text-align: center;
 
 			&:not(:first-child) {
-				background: linear-gradient(right, #e6e6e6 50%,transparent 50%);
+				background: linear-gradient(to right, #e6e6e6 50%, transparent 50%);
 				background-size: 1px 100%;
 				background-repeat: no-repeat;
 				background-position: top left;
