@@ -18,3 +18,18 @@ npm run build
 npm run mockdev
 
 ```
+
+## wiki
+
+URL: https://github.com/Eric124120/fmui-react/wiki
+
+## demo
+
+URL: https://eric124120.github.io/fmui-react
+
+### 二维码扫描
+
+
+![Alt text](https://eric124120.github.io/fmui-react/images/demo-url.png "二维码")
+
+
