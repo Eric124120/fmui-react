@@ -4,6 +4,7 @@
 import Flex from './src/flex'
 import FlexItem from './src/flexItem'
 
-Flex.FlexItem = FlexItem
-
-export default Flex
+export {
+	Flex,
+	FlexItem
+}

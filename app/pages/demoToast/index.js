@@ -2,8 +2,8 @@
  * Created by huangchengwen on 16/12/29.
  */
 import { Component } from 'react'
-const Button = require('../../../packages/button').default
-const Toast = require('../../../packages/toast').default
+import Button from '../../../packages/button'
+import Toast from '../../../packages/toast'
 
 export default class DemoToast extends Component {
 	state = {

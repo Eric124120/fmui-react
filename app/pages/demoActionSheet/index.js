@@ -3,7 +3,7 @@
  */
 import { Component } from 'react'
 import Button from '../../../packages/button'
-import Flex from '../../../packages/flex'
+import { Flex } from '../../../packages/flex'
 import ActionSheet from '../../../packages/actionsheet'
 
 export default class DemoActionSheet extends Component {

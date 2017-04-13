@@ -2,7 +2,12 @@
  * Created by huangchengwen on 17/1/1.
  */
 import { Component } from 'react'
-import {AgreeItem, CheckboxItem, RadioGroup, CheckboxGroup} from '../../../packages/checkbox'
+import {
+	AgreeItem,
+	CheckboxItem,
+	RadioGroup,
+	CheckboxGroup
+} from '../../../packages/checkbox'
 
 import './index.scss'
 
