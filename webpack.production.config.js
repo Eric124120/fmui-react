@@ -13,7 +13,7 @@ module.exports = {
 		common: __dirname + "/packages/index.js",
 	},
 	output: {
-		path: __dirname + "/dist",
+		path: __dirname + "/docs",
 		filename: "[name].[hash:8].js",
 		chunkFilename: '[name].[chunkhash:8].chunk.js'
 	},
@@ -55,7 +55,7 @@ module.exports = {
 			template: __dirname + "/app/index.html"
 		}),
 		new CleanPlugin(['output'], {
-			"root": path.resolve(__dirname, './dist'),
+			"root": path.resolve(__dirname, './docs'),
 			verbose: true,
 			dry: false
 		}),
