@@ -7,13 +7,25 @@ import './button.scss'
 
 export default class Button extends Component {
 	static propTypes = {
-		disabled: React.PropTypes.bool,
-		type: React.PropTypes.string,
-		size: React.PropTypes.string
+		disabled: PropTypes.bool,
+		icon: PropTypes.string,
+		type: PropTypes.oneOf([
+			'default',
+			'white-orange',
+			'orange-white',
+			'white-blue',
+			'blue-whit'
+		]),
+		size: PropTypes.oneOf([
+			'large',
+			'normal',
+			'small'
+		])
 	};
 
 	static defaultProps = {
 		disabled: false,
+		icon: '',
 		type: 'default',
 		size: 'normal'
 	};
