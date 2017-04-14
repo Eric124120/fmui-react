@@ -7,6 +7,7 @@ import Toast from '../../../packages/toast'
 
 export default class DemoToast extends Component {
 	state = {
+		testShow: false,
 		showToast: false,
 		toastType: 'success',
 		toastTimer: null
@@ -14,6 +15,10 @@ export default class DemoToast extends Component {
 
 	componentWillUnmount () {
 		Toast.destroy();
+	}
+
+	onClick() {
+		this.setState({testShow: true})
 	}
 
 	handler(type) {
@@ -64,6 +69,11 @@ export default class DemoToast extends Component {
 				<div className="fm-flexbox">
 					<Button size="large" type="orange-white" onTouchEnd={this.handler.bind(this, 'loading')}>toast-loading</Button>
 				</div>
+
+				<div className="fm-flexbox">
+					<Button size="large" type="orange-white" onClick={this.onClick.bind(this)}>toast-loading</Button>
+				</div>
+				<Toast show={this.state.testShow}/>
 			</div>
 		)
 	}

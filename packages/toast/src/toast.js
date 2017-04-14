@@ -11,6 +11,72 @@ import './toast.scss'
 let singleton = null;
 
 export default class Toast extends Component {
+	constructor(props) {
+		super(props);
+		singleton = this;
+
+		this.state = {
+			type: 'normal',
+			show: false,
+			message: '操作成功',
+			modal: true,
+			duration: 3000,
+			autoClose: true,
+			onClose: null
+		}
+
+	}
+
+	/**
+	 * ====================非单例模式处理========================
+	 */
+
+	static propTypes = {
+		type: PropTypes.oneOf(['normal', 'success', 'loading', 'fail', 'network']),
+		show: PropTypes.bool,
+		message: PropTypes.string,
+		modal: PropTypes.bool,
+		duration: PropTypes.number,
+		autoClose: PropTypes.bool,
+		onClose: PropTypes.fun
+	}
+
+	static defaultProps = {
+		type: 'normal',
+		show: false,
+		message: '操作成功',
+		modal: true,
+		duration: 3000,
+		autoClose: true,
+		onClose: null
+	}
+
+	componentDidMount() {
+		// 非单例模式时处理
+		const {type, show, message, modal, duration, autoClose} = this.props;
+		this.setState({ type, show, message, modal, duration, autoClose });
+	}
+
+	componentWillReceiveProps(nextProps) {
+		// 非单例模式时处理
+		if(nextProps.show !== this.props.show) {
+			this.setState({ show: nextProps.show });
+
+			nextProps.autoClose && setTimeout(() => {
+				this.hidden()
+			}, nextProps.duration);
+		}
+	}
+
+	hidden() {
+		// 非单例模式时处理
+		this.setState({show: false}, () => this.props.show = false);
+	}
+
+
+	/**
+	 * ====================单例模式处理========================
+	 */
 
 	componentDidUpdate() {
 		this.state.autoClose && setTimeout(() => {
@@ -36,25 +102,8 @@ export default class Toast extends Component {
 		}
 	}
 
-	constructor(props) {
-		super(props);
-		singleton = this;
-
-		this.state = {
-			type: 'normal',
-			show: false,
-			message: '操作成功',
-			modal: true,
-			duration: 3000,
-			autoClose: true,
-			onClose: null
-		}
-
-	}
-
 	render() {
-		const {...others } = this.props;
-		const {type, show, message, modal, duration, autoClose} = this.state;
+		const {type, show, message, modal} = this.state;
 
 		let IconComponent = '';
 
@@ -78,6 +127,10 @@ export default class Toast extends Component {
 	}
 
 }
+
+/**
+ * ====================单例模式处理函数========================
+ */
 
 function notice(message, type, duration, onClose) {
 	if (typeof duration === 'function') {
