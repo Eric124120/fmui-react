@@ -71,7 +71,7 @@ export default class DemoToast extends Component {
 				</div>
 
 				<div className="fm-flexbox">
-					<Button size="large" type="orange-white" onClick={this.onClick.bind(this)}>toast-loading</Button>
+					<Button size="large" type="orange-white" onClick={this.onClick.bind(this)}>Toast（非单例模式）</Button>
 				</div>
 				<Toast show={this.state.testShow}/>
 			</div>
