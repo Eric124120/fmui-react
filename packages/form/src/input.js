@@ -12,10 +12,9 @@ import Cell, {
 
 export default class Input extends Base {
     static propTypes = {
-        validations: PropTypes.arrayOf(PropTypes.string).isRequired,
-        errorClassName: PropTypes.string,
-        containerClassName: PropTypes.string,
-        errorContainerClassName: PropTypes.string
+        validations: PropTypes.arrayOf(PropTypes.string),
+        inputClass: PropTypes.string,
+        containerClassName: PropTypes.string
     };
 
     static contextTypes = {
@@ -48,6 +47,8 @@ export default class Input extends Base {
         const {
             fmListTip,
             className,
+            inputClass,
+            containerClassName,
             ...rest } = this.props;
         // TODO: Refactor conditions
         const isFocus = this.state.isFocus;
@@ -78,13 +79,15 @@ export default class Input extends Base {
 
             <CellItemControl className = {cx({
                 'fm-input-autoclear': isFocus,
-                'fm-validate': !!error
+                'fm-validate': !!error,
+                [containerClassName]: !!containerClassName,
+                [className]: !!className,
             })}>
                 <input
                     {...rest}
                     value={value}
                     className={cx({
-                        [className]: !!className,
+                        [inputClass]: !!inputClass,
                         'fm-validate-red': !!error
                     })}
                     onChange={this.onChange}

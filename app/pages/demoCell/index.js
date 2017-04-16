@@ -14,7 +14,7 @@ import Cell ,{
 	CellItemLabel
 } from '../../../packages/cell';
 
-export default class DemoForm extends Component {
+export default class DemoCell extends Component {
 	constructor(prop) {
 		super(prop)
 	}

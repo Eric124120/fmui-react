@@ -11,10 +11,11 @@ import {CheckboxGroup} from '../../checkbox';
 
 export default class Checkbox extends Base {
 	static propTypes = {
+		checkboxData: PropTypes.arrayOf(PropTypes.object),
 		validations: PropTypes.arrayOf(PropTypes.string),
-		errorClassName: PropTypes.string,
-		containerClassName: PropTypes.string,
-		errorContainerClassName: PropTypes.string
+		checkboxName: PropTypes.string,
+		checkboxType: PropTypes.oneOf(['normal', 'rect', 'cell']),
+		checkboxClass: PropTypes.string
 	};
 
 	static contextTypes = {

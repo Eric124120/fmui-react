@@ -8,10 +8,11 @@ import {RadioGroup} from '../../checkbox';
 
 export default class Radio extends Base {
 	static propTypes = {
+		radioData: PropTypes.arrayOf(PropTypes.object),
 		validations: PropTypes.arrayOf(PropTypes.string),
-		errorClassName: PropTypes.string,
-		containerClassName: PropTypes.string,
-		errorContainerClassName: PropTypes.string
+		radioName: PropTypes.string,
+		radioType: PropTypes.oneOf(['normal', 'rect', 'cell']),
+		radioClass: PropTypes.string
 	};
 
 	static contextTypes = {
