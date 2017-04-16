@@ -11,7 +11,8 @@ import Cell ,{
 	CellItemContent,
 	CellItemControl,
 	CellItemExtra,
-	CellItemLabel
+	CellItemLabel,
+	CellItemTip
 } from '../../../packages/cell';
 
 export default class DemoCell extends Component {
@@ -30,6 +31,13 @@ export default class DemoCell extends Component {
 							<input type="tel" name="phone" id="phone" placeholder="输入框提示内容"/>
 						</CellItemControl>
 						<CellItemClear></CellItemClear>
+					</CellItem>
+					<CellItem>
+						<CellItemLabel>金额</CellItemLabel>
+						<CellItemControl>
+							<input type="text" name="money" id="money" placeholder="输入金额"/>
+						</CellItemControl>
+						<CellItemTip>万美刀</CellItemTip>
 					</CellItem>
 					<CellItem>
 						<CellItemLabel>短信验证码</CellItemLabel>
