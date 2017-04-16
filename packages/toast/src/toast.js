@@ -1,8 +1,6 @@
 /**
  * Created by huangchengwen on 16/12/28.
  */
-import { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import Mask from '../../mask';
 import './toast.scss'
@@ -10,73 +8,7 @@ import './toast.scss'
 
 let singleton = null;
 
-export default class Toast extends Component {
-	constructor(props) {
-		super(props);
-		singleton = this;
-
-		this.state = {
-			type: 'normal',
-			show: false,
-			message: '操作成功',
-			modal: true,
-			duration: 3000,
-			autoClose: true,
-			onClose: null
-		}
-
-	}
-
-	/**
-	 * ====================非单例模式处理========================
-	 */
-
-	static propTypes = {
-		type: PropTypes.oneOf(['normal', 'success', 'loading', 'fail', 'network']),
-		show: PropTypes.bool,
-		message: PropTypes.string,
-		modal: PropTypes.bool,
-		duration: PropTypes.number,
-		autoClose: PropTypes.bool,
-		onClose: PropTypes.fun
-	}
-
-	static defaultProps = {
-		type: 'normal',
-		show: false,
-		message: '操作成功',
-		modal: true,
-		duration: 3000,
-		autoClose: true,
-		onClose: null
-	}
-
-	componentDidMount() {
-		// 非单例模式时处理
-		const {type, show, message, modal, duration, autoClose} = this.props;
-		this.setState({ type, show, message, modal, duration, autoClose });
-	}
-
-	componentWillReceiveProps(nextProps) {
-		// 非单例模式时处理
-		if(nextProps.show !== this.props.show) {
-			this.setState({ show: nextProps.show });
-
-			nextProps.autoClose && setTimeout(() => {
-				this.hidden()
-			}, nextProps.duration);
-		}
-	}
-
-	hidden() {
-		// 非单例模式时处理
-		this.setState({show: false}, () => this.props.show = false);
-	}
-
-
-	/**
-	 * ====================单例模式处理========================
-	 */
+export default class Toast extends React.Component {
 
 	componentDidUpdate() {
 		this.state.autoClose && setTimeout(() => {
@@ -102,8 +34,25 @@ export default class Toast extends Component {
 		}
 	}
 
+	constructor(props) {
+		super(props);
+		singleton = this;
+
+		this.state = {
+			type: 'normal',
+			show: false,
+			message: '操作成功',
+			modal: true,
+			duration: 3000,
+			autoClose: true,
+			onClose: null
+		}
+
+	}
+
 	render() {
-		const {type, show, message, modal} = this.state;
+		const {...others } = this.props;
+		const {type, show, message, modal, duration, autoClose} = this.state;
 
 		let IconComponent = '';
 
@@ -116,21 +65,17 @@ export default class Toast extends Component {
 		}
 
 		return (
-				<div ref="toastDOM" style={{display: show ? 'block' : 'none'}}>
-					<Mask show={ modal }></Mask>
-					<div className="fm-toast" style={ type === 'normal' ? {  padding: '10px', width: '80%' } : {padding:'24px 24px 20px'}}>
-						{IconComponent}
-						<span className="fm-toast-text" style={{ paddingTop: type === 'normal' ? '0' : '8px' }}>{ message }</span>
-					</div>
+			<div ref="toastDOM" style={{display: show ? 'block' : 'none'}}>
+				<Mask show={ modal }></Mask>
+				<div className="fm-toast" style={ type === 'normal' ? {  padding: '10px', width: '80%' } : {padding:'24px 24px 20px'}}>
+					{IconComponent}
+					<span className="fm-toast-text" style={{ paddingTop: type === 'normal' ? '0' : '8px' }}>{ message }</span>
 				</div>
+			</div>
 		)
 	}
 
 }
-
-/**
- * ====================单例模式处理函数========================
- */
 
 function notice(message, type, duration, onClose) {
 	if (typeof duration === 'function') {
@@ -163,8 +108,8 @@ Toast.init = (settings) => {
 		}
 
 		ReactDOM.render(
-				<Toast />,
-				document.getElementById('global-toast-id')
+			<Toast />,
+			document.getElementById('global-toast-id')
 		);
 	}
 

@@ -78,21 +78,21 @@ export default class Modal extends Component {
 		const iconDOM = icon ? <i className="fm-modal-icon"><img src={icon} width="36" height="36"/></i> : '';
 
 		return(
-				<div  style={ { display: show ? 'block' : 'none' } }>
-					<Mask show={ true }></Mask>
-					<div className="fm-modal" {...others}>
-						<div className="fm-modal-header">
-							{iconDOM}
-							<h3 className="fm-modal-title">{title}</h3>
-						</div>
-						<div className="fm-modal-body">
-							<span className="fm-modal-content">{content}</span>
-						</div>
-						<div className="fm-modal-footer">
-							{this.renderButtons()}
-						</div>
+			<div  style={ { display: show ? 'block' : 'none' } }>
+				<Mask show={ true }></Mask>
+				<div className="fm-modal" {...others}>
+					<div className="fm-modal-header">
+						{iconDOM}
+						<h3 className="fm-modal-title">{title}</h3>
+					</div>
+					<div className="fm-modal-body">
+						<span className="fm-modal-content">{content}</span>
+					</div>
+					<div className="fm-modal-footer">
+						{this.renderButtons()}
 					</div>
 				</div>
+			</div>
 		)
 	}
 }
@@ -123,8 +123,8 @@ Modal.init = () => {
 		}
 
 		ReactDOM.render(
-				<Modal />,
-				document.getElementById('global-modal-id')
+			<Modal />,
+			document.getElementById('global-modal-id')
 		);
 	}
 
