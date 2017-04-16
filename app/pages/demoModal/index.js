@@ -14,76 +14,101 @@ export default class DemoDodal extends Component {
 		super(prop);
 
 		this.state = {
-			showModal: false
+			alertShow: false,
+			confirmShow: false,
+			iconConfirmShow: false
 		}
 	}
 
-	componentWillUnmount () {
-		Modal.destroy();
-	}
-
-	alert() {
-		const modal = Modal.alert({title: "提示标题", content: "内容提示两行行，内容提示两行行，内容提示两行行", buttons: [
-			{
-				text: "知道了",
-				onClick: function () {
-					modal.destroy();
-					console.log('知道了');
-				}
-			}
-		]})
-	}
-
-	confirm() {
-		const modal = Modal.alert({title: "提示标题", content: "内容提示一行，最小高度145", buttons: [
-			{
-				text: "辅助操作",
-				onClick: function () {
-					modal.destroy();
-					console.log('辅助操作');
-				}
-			},
-			{
-				text: "主操作",
-				onClick: function () {
-					modal.destroy();
-					console.log('主操作');
-				}
-			}
-		]})
+	hidden() {
+		this.setState({
+			alertShow: false,
+			confirmShow: false,
+			iconConfirmShow: false
+		});
 	}
 
 	iconConfirm() {
-		const modal = Modal.alert({icon: reactIcon,title: "提示标题", content: "内容提示一行，最小高度145,内容提示一行，最小高度145", buttons: [
-			{
+		this.setState({
+			show: true,
+			icon: reactIcon,
+			title: "提示标题",
+			content: "内容提示一行，最小高度145,内容提示一行，最小高度145",
+			buttons: [{
 				text: "辅助操作",
 				onClick: function () {
-					modal.destroy();
+					this.destroy();
 					console.log('辅助操作');
 				}
-			},
-			{
+			}, {
 				text: "主操作",
 				onClick: function () {
-					modal.destroy();
+					this.destroy();
 					console.log('主操作');
 				}
-			}
-		]})
+			}]
+		})
 	}
 
 	render() {
+		const { alertShow, confirmShow, iconConfirmShow } = this.state;
+
 		return(
 			<div>
 				<div className="fm-flexbox">
-					<Button size="large" type="white-orange" onTouchEnd={this.alert}>alert</Button>
+					<Button size="large" type="white-orange" onTouchEnd={e => this.setState({alertShow:true})}>alert</Button>
 				</div>
 				<div className="fm-flexbox">
-					<Button size="large" type="white-orange" onTouchEnd={this.confirm}>confirm</Button>
+					<Button size="large" type="white-orange" onTouchEnd={e => this.setState({confirmShow:true})}>confirm</Button>
 				</div>
 				<div className="fm-flexbox">
-					<Button size="large" type="white-orange" onTouchEnd={this.iconConfirm}>iconConfirm</Button>
+					<Button size="large" type="white-orange" onTouchEnd={e => this.setState({iconConfirmShow:true})}>iconConfirm</Button>
 				</div>
+				<Modal show={alertShow}
+				       title='提示标题'
+				       content='内容提示两行行，内容提示两行行，内容提示两行行'
+				       buttons={[{
+					       text: "知道了",
+					       onClick:  e => {
+						       this.hidden();
+						       console.log('知道了');
+					       }
+				       }]}/>
+
+				<Modal show={confirmShow}
+				       title='提示标题'
+				       content='内容提示一行，最小高度145'
+				       buttons={[{
+					       text: "辅助操作",
+					       onClick:  e => {
+						       this.hidden();
+						       console.log('辅助操作');
+					       }
+				       }, {
+					       text: "主操作",
+					       onClick: e => {
+						       this.hidden();
+						       console.log('主操作');
+					       }
+				       }]}/>
+
+				<Modal show={iconConfirmShow}
+				       icon={reactIcon}
+				       title='提示标题'
+				       content='内容提示一行，最小高度145,内容提示一行，最小高度145'
+				       buttons={[{
+					       text: "辅助操作",
+					       onClick: e => {
+						       this.hidden();
+						       console.log('辅助操作');
+					       }
+				       }, {
+					       text: "主操作",
+					       onClick: e => {
+						       this.hidden();
+						       console.log('主操作');
+					       }
+				       }]}/>
 			</div>
 		)
 	}

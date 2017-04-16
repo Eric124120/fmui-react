@@ -6,23 +6,9 @@ import classNames from 'classnames'
 import Mask from '../../mask'
 import './modal.scss'
 
-let singleton = null;
-
 export default class Modal extends Component {
 	constructor(prop) {
 		super(prop);
-
-		singleton = this;
-
-		this.state = {
-			show: false,
-			icon: '',
-			title: '提示',
-			content: '提示信息',
-			buttons: [
-				{text: "ok", type: 'primary'}
-			]
-		}
 	}
 
 	static propTypes = {
@@ -33,32 +19,25 @@ export default class Modal extends Component {
 		buttons: PropTypes.array
 	}
 
-
-	show(options) {
-		this.setState(options);
-
-		return this;
+	static defaultProps = {
+		show: false,
+		icon: '',
+		title: '提示',
+		content: '提示信息',
+		buttons: [
+			{text: "ok", type: 'primary'}
+		]
 	}
 
 	hide() {
-		this.setState({show: false});
+		this.setState({
 
-		return this;
-	}
-
-	destroy() {
-		if(singleton) {
-			var modalDOM = document.body.querySelector('#global-modal-id');
-			modalDOM && document.body.removeChild(modalDOM);
-			singleton = null;
-
-			return this;
-		}
+		})
 	}
 
 	renderButtons() {
-		return this.state.buttons.map( (action, idx) => {
-			const { text, type, ...others } = action;
+		return this.props.buttons.map( (action, idx) => {
+			const { text, onClick, type, ...others } = action;
 			const cls = classNames({
 				"fm-modal-button": true,
 				"fm-modal-button-default": type === 'default',
@@ -68,18 +47,19 @@ export default class Modal extends Component {
 			return(
 				<a key={idx} href="javascript:void(0);"
 				   className={cls}
+				   onClick={ e => onClick.call(this, e)}
 				   {...others}>{text}</a>
 			)
 		});
 	}
 
 	render() {
-		const {show, icon, title, content, buttons, ...others } = this.state;
+		const {show, icon, title, content, ...others } = this.props;
 		const iconDOM = icon ? <i className="fm-modal-icon"><img src={icon} width="36" height="36"/></i> : '';
 
 		return(
 			<div  style={ { display: show ? 'block' : 'none' } }>
-				<Mask show={ true }></Mask>
+				<Mask show={ show }></Mask>
 				<div className="fm-modal" {...others}>
 					<div className="fm-modal-header">
 						{iconDOM}
@@ -95,47 +75,4 @@ export default class Modal extends Component {
 			</div>
 		)
 	}
-}
-
-function notice(icon, title, content, buttons) {
-
-
-	let modalInstance = Modal.init();
-
-	return modalInstance.show({
-		show: true,
-		icon: icon,
-		title: title,
-		content: content,
-		buttons: buttons
-	});
-}
-
-Modal.init = () => {
-	if(!singleton) {
-		let bodyDOM = document.body,
-			modalContainer = bodyDOM.querySelector('#global-modal-id');
-
-		if( !modalContainer ) {
-			modalContainer = document.createElement('div');
-			modalContainer.setAttribute('id', 'global-modal-id');
-			bodyDOM.appendChild(modalContainer);
-		}
-
-		ReactDOM.render(
-			<Modal />,
-			document.getElementById('global-modal-id')
-		);
-	}
-
-	return singleton;
-}
-
-Modal.alert = ({icon: icon, title: title, content: content, buttons: buttons}) => {
-	return notice(icon, title, content, buttons);
-}
-
-Modal.destroy = () => {
-	let modalInstance = Modal.init();
-	return modalInstance.destroy()
 }
