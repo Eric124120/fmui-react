@@ -23,7 +23,8 @@ export default class DemoList extends Component {
 			{ toUrl: '/popupmodal', titleTxt: 'popupmodal' },
 			{ toUrl: '/cell', titleTxt: 'cell' },
 			{ toUrl: '/validate', titleTxt: 'validate' },
-			{ toUrl: '/tab', titleTxt: 'tab' }
+			{ toUrl: '/tab', titleTxt: 'tab' },
+			{ toUrl: '/header', titleTxt: 'header' }
 		]
 	};
 

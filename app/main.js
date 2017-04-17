@@ -49,7 +49,7 @@ const rootRouter = [
 			}, 'DemoFlex')
 		}
 	}, {
-		path: '/cell',
+		path: '/form',
 		getComponent(nextState, cb) {
 			require.ensure([], (require) => {
 				cb(null, require('./pages/demoCell'))
@@ -96,6 +96,13 @@ const rootRouter = [
 			require.ensure([], (require) => {
 				cb(null, require('./pages/demoTab'))
 			}, 'DemoTab')
+		}
+	}, {
+		path: '/header',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoHeader'))
+			}, 'DemoHeader')
 		}
 	}
 

@@ -12,7 +12,11 @@ export default class HeaderNavBar extends Component {
 	}
 
 	static defaultProps = {
-		show: true
+		show: true,
+		hide: 'hide',
+		leftClick: null,
+		right: 'hide',
+		rightClick: null
 	}
 
 	static propTypes = {
@@ -53,13 +57,11 @@ export default class HeaderNavBar extends Component {
 		}
 		
 		return (
-
-				<div className={cCls} {...props}>
-					<a href={leftPath[left]} onClick={leftClick}  className={lCls} ></a>
-					<span className="fm-header-title">{ title }</span>
-					<a href="#" onClick={rightClick}  className={rCls}></a>
-				</div>
-
+			<div className={cCls} {...props}>
+				<a href={leftPath[left]} onClick={leftClick}  className={lCls} ></a>
+				<span className="fm-header-title">{ title }</span>
+				<a href="#" onClick={rightClick}  className={rCls}></a>
+			</div>
 		)
 
 	}
