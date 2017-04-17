@@ -15,41 +15,43 @@ export default class DemoActionSheet extends Component {
 		}
 	}
 
-	componentDidMount() {
-		/*初始化actionsheet*/
-		const actionMenus = [
-			{
-				text: '选项一',
-				current: true,
-				onClick: function () {
-					console.log('选项一');
-				}
-			},
-			{
-				text: '选项二',
-				onClick: function () {
-					console.log('选项二');
-				}
-			}
-		]
-
-		this.actionSheeet = ActionSheet.init('ActionSheet', actionMenus, function () {
-			console.log('cancel')
+	handle() {
+		this.setState({
+			show: true
 		})
 	}
 
-	componentWillUnmount() {
-		/*销毁actionsheeet*/
-		this.actionSheeet.destroy();
-	}
+	cancelFun(e, actionSheet) {
+		console.log(e);
+		console.log(actionSheet);
 
-	handle() {
-		/*显示actionsheeet*/
-		this.actionSheeet.show();
+		this.setState({
+			show: false
+		})
 	}
 
 
 	render() {
+
+		const actionMenus = [
+			{
+				text: '选项一',
+				current: true,
+				onClick:  (e, actionSheet) => {
+					console.log('选项一');
+
+					this.cancelFun(e, actionSheet)
+				}
+			},
+			{
+				text: '选项二',
+				onClick:  (e, actionSheet) => {
+					console.log('选项二');
+
+					this.cancelFun(e, actionSheet)
+				}
+			}
+		]
 
 
 		return(
@@ -57,6 +59,10 @@ export default class DemoActionSheet extends Component {
 				<Flex>
 					<Button size="large" type="white-orange" onClick={this.handle.bind(this)}>actionsheet</Button>
 				</Flex>
+				<ActionSheet show={this.state.show}
+				             actionMenus={actionMenus}
+				             cancelText="取消选项"
+							 cancelFun={this.cancelFun.bind(this)}/>
 			</div>
 
 		)

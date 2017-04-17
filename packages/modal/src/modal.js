@@ -29,12 +29,6 @@ export default class Modal extends Component {
 		]
 	}
 
-	hide() {
-		this.setState({
-
-		})
-	}
-
 	renderButtons() {
 		return this.props.buttons.map( (action, idx) => {
 			const { text, onClick, type, ...others } = action;

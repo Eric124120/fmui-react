@@ -19,10 +19,10 @@ export default class Mask extends Component {
 	constructor(props) {
 		super(props);
 
-		this.handler = () => {
+		this.handler = (e) => {
 			const {maskClick} = this.props;
 			if('function' === typeof maskClick) {
-				maskClick();
+				maskClick(e);
 			}
 		}
 
