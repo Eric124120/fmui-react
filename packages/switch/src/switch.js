@@ -16,7 +16,7 @@ export default class Switch extends Component {
 	static propTypes = {
 		name: PropTypes.string,
 		disabled: PropTypes.bool,
-		onChange: PropTypes.fun
+		onChange: PropTypes.func
 	}
 
 	static defaultProps = {

@@ -15,7 +15,7 @@ export default class PopupModal extends Component {
 
 	static propTypes = {
 		title: PropTypes.string,
-		onCancelPopup: PropTypes.fun,
+		onCancelPopup: PropTypes.func,
 		show: PropTypes.bool
 	}
 

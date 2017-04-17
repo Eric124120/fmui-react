@@ -25,8 +25,8 @@ export default class RadioGroup extends Component {
 		radioName: PropTypes.string,
 		radioType: PropTypes.oneOf(['normal', 'rect', 'cell']),
 		radioClass: PropTypes.string,
-		onChange: PropTypes.fun,
-		radioChange: PropTypes.fun,
+		onChange: PropTypes.func,
+		radioChange: PropTypes.func,
 		checkedValue: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
 		validations: PropTypes.arrayOf(PropTypes.string)
 	}

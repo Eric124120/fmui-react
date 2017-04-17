@@ -26,8 +26,8 @@ export default class CheckboxGroup extends Component {
 		checkboxName: PropTypes.string,
 		checkboxType: PropTypes.oneOf(['normal', 'rect', 'cell']),
 		checkboxClass: PropTypes.string,
-		onChange: PropTypes.fun,
-		checkboxChange: PropTypes.fun,
+		onChange: PropTypes.func,
+		checkboxChange: PropTypes.func,
 		checkedDefault: PropTypes.array,
 		validations: PropTypes.arrayOf(PropTypes.string)
 	}

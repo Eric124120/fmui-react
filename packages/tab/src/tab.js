@@ -15,7 +15,7 @@ export default class Tab extends Component {
 
 	static propTypes = {
 		searchHandle: PropTypes.node,
-		onSelect: PropTypes.fun,
+		onSelect: PropTypes.func,
 		type: PropTypes.oneOf(['normal', 'bottom']),
 	}
 

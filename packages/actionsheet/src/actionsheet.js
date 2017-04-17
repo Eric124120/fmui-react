@@ -17,7 +17,7 @@ export default class ActionSheet extends Component {
 		show: PropTypes.bool,
 		actionMenus: PropTypes.array,
 		cancelText: PropTypes.string,
-		cancelFun: PropTypes.fun
+		cancelFun: PropTypes.func
 	}
 
 	static defaultProps = {

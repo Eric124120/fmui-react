@@ -23,9 +23,9 @@ export default class HeaderNavBar extends Component {
 		title: PropTypes.string.isRequired,
 		show: PropTypes.bool,
 		left: PropTypes.oneOf(['hide', 'back', 'notify']),
-		leftClick: PropTypes.fun,
+		leftClick: PropTypes.func,
 		right: PropTypes.oneOf(['hide', 'more']),
-		rightClick: PropTypes.fun
+		rightClick: PropTypes.func
 	}
 
 

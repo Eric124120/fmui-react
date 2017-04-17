@@ -40,8 +40,8 @@ export default class ScrollLoad extends Component {
 		ScrollIsFetch: PropTypes.bool,
 		ScrollSize: PropTypes.number,
 		ScrollLastId: PropTypes.string,
-		ScrollOnReload: PropTypes.fun,
-		ScrollOnPopup: PropTypes.fun,
+		ScrollOnReload: PropTypes.func,
+		ScrollOnPopup: PropTypes.func,
 		ScrollOffset: PropTypes.number
 	}
 
