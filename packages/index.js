@@ -15,6 +15,8 @@ import PopupModal from './popupModal'
 import ButtonGroup from './buttonGroup'
 import Form from './form'
 import HeaderNavBar from './headerNavBar'
+import Tab from './tab'
+import TabsNavBar from './tabsNavBar'
 
 /***********样式加载***********/
 
@@ -34,5 +36,7 @@ export {
 	ScrollLoad,
 	PopupModal,
 	Form,
-	HeaderNavBar
+	HeaderNavBar,
+	Tab,
+	TabsNavBar
 }

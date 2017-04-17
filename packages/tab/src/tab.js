@@ -8,18 +8,20 @@ export default class Tab extends Component {
 		super(prop)
 
 		this.state = {
-			currentIndex: 0
+			currentIndex: this.props.currentIndex
 		}
 
 	}
 
 	static propTypes = {
+		currentIndex: PropTypes.number,
 		searchHandle: PropTypes.node,
 		onSelect: PropTypes.func,
 		type: PropTypes.oneOf(['normal', 'bottom']),
 	}
 
 	static defaultProps = {
+		currentIndex: 0,
 		searchHandle: null,
 		onSelect: null,
 		type: 'normal',
@@ -63,7 +65,7 @@ export default class Tab extends Component {
 					{children.map( (title, idx) => {
 						return(
 							<div key={"title_" + idx} className={this.titleCls(idx)} onClick={this.handlSelect.bind(this, idx)}>
-								{title.props.name}
+								<span>{title.props.name}</span>
 							</div>
 						)
 					})}

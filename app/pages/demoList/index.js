@@ -24,6 +24,7 @@ export default class DemoList extends Component {
 			{ toUrl: '/cell', titleTxt: 'cell' },
 			{ toUrl: '/validate', titleTxt: 'validate' },
 			{ toUrl: '/tab', titleTxt: 'tab' },
+			{ toUrl: '/tabsNavBar', titleTxt: 'tabsNavBar' },
 			{ toUrl: '/header', titleTxt: 'header' }
 		]
 	};

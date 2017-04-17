@@ -98,6 +98,13 @@ const rootRouter = [
 			}, 'DemoTab')
 		}
 	}, {
+		path: '/tabsNavBar',
+		getComponent(nextState, cb) {
+			require.ensure([], (require) => {
+				cb(null, require('./pages/demoTabsNavBar'))
+			}, 'DemoTabsNavBar')
+		}
+	}, {
 		path: '/header',
 		getComponent(nextState, cb) {
 			require.ensure([], (require) => {

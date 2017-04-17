@@ -1,0 +1,40 @@
+.ui-tabs-bar {
+	width: 100%;
+	position: relative;
+	display: flex;
+	align-items:center;
+	z-index: 99;
+	height: 44px;
+	background: #fff;
+	box-sizing: border-box;
+	border-bottom: 1px solid #efefef;
+
+	.ui-tabs-item {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items:center;
+		color: #333;
+		height: 100%;
+		cursor: pointer;
+
+		span {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			padding: 0 5px;
+			box-sizing: border-box;
+		}
+
+		&.selected span  {
+			color: #ff552e;
+			border-bottom: 1px solid #ff552e;
+		}
+
+		&:active {
+			background: #efefef;
+		}
+	}
+
+
+}

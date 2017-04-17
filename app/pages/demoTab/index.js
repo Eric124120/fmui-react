@@ -17,7 +17,7 @@ export default class DemoFlex extends Component {
 	render() {
 
 		return(
-				<Tab>
+				<Tab currentIndex={2}>
 					<div type="content" name="tab一">
 						<div className="list-item">内容一</div>
 						<div className="list-item">内容一</div>
