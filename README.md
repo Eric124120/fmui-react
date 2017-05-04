@@ -29,5 +29,5 @@ URL: https://eric124120.github.io/fmui-react
 
 ### 二维码扫描
 
-![Alt text](https://eric124120.github.io/fmui-react/images/demo-url.png "二维码")
+![Alt text](hhttp://ww3.sinaimg.cn/large/6aee7dbbgw1effezhonxlj20e009c3yu.jpg "二维码")
 
