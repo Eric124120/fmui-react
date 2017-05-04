@@ -31,5 +31,3 @@ URL: https://eric124120.github.io/fmui-react
 
 
 ![Alt text](https://eric124120.github.io/fmui-react/images/demo-url.png "二维码")
-
-
