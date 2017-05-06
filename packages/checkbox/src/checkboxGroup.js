@@ -5,6 +5,7 @@ import React, { Component, PropTypes } from 'react';
 import { findDOMNode, cloneElement } from 'react-dom';
 import cx from 'classnames';
 
+import getGuid from './getGuid';
 import Checkbox from '../../../packages/checkbox';
 
 
@@ -13,11 +14,11 @@ export default class CheckboxGroup extends Component {
 	constructor(prop) {
 		super(prop);
 		// 生成随机name域（form 组件取值处理时会过滤掉，只会去隐藏域的值）
-		let timestamp = new Date().getTime();
+		let guid = getGuid();
 
 		this.state = {
 			checkedDefault: [],
-			hiddenName: `hidden_name_${timestamp}`
+			hiddenName: `hidden_name_${guid}`
 		}
 	}
 
