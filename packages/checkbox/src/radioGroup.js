@@ -5,7 +5,6 @@ import React, {Component, PropTypes} from 'react';
 import {findDOMNode, cloneElement} from 'react-dom';
 import cx from 'classnames';
 
-import getGuid from './getGuid';
 import Checkbox from '../../../packages/checkbox';
 
 
@@ -13,11 +12,11 @@ export default class RadioGroup extends Component {
 	constructor(prop) {
 		super(prop);
 		// 生成随机name域（form 组件取值处理时会过滤掉，只会去隐藏域的值）
-		let guid = getGuid();
+		let timestamp = new Date().getTime();
 
 		this.state = {
 			radioValue: '',
-			hiddenName: `hidden_name_${guid}`
+			hiddenName: `hidden_name_${timestamp}`
 		}
 	}
 

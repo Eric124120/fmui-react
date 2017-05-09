@@ -48,7 +48,8 @@ export default class DemoCheckbox extends Component{
 				</div>
 				<div className="fm-list-body">
 					<div className="fm-list-item">
-						<RadioGroup radioData={radioData}
+						<RadioGroup radioData={[{label: '男', value: 1},
+										{label: '女', value: 2}]}
 						            radioName="sex1"
 						            checkedValue={1}
 						            radioClass="margin-letf15"/>

@@ -6,18 +6,28 @@ import Mask from '../../mask';
 import './toast.scss'
 
 
-let singleton = null;
+let singleton = null,
+	closeTimeout = null;
 
 export default class Toast extends React.Component {
 
-	componentDidUpdate() {
-		this.state.autoClose && setTimeout(() => {
-			this.destroy();
-		}, this.state.duration);
-	}
 
 	show(settings) {
-		this.setState(settings);
+		this.setState(settings, () => {
+            this.state.autoClose &&
+			(closeTimeout = setTimeout(() => {
+                this.hide();
+            }, this.state.duration));
+		});
+
+		return this;
+	}
+
+	hide() {
+		this.setState({show: false}, () => {
+            'function' === typeof this.state.onClose &&
+				this.state.onClose();
+		});
 
 		return this;
 	}
@@ -26,9 +36,8 @@ export default class Toast extends React.Component {
 		if(singleton) {
 			var toastDOM = document.body.querySelector('#global-toast-id');
 			toastDOM && document.body.removeChild(toastDOM);
-			singleton = null;
-
-			'function' === typeof this.state.onClose && this.state.onClose();
+			singleton = null; // 清除单例
+			clearTimeout(closeTimeout); // 清除setTimeout
 
 			return this;
 		}
