@@ -31,3 +31,6 @@ URL: https://eric124120.github.io/fmui-react
 
 ![Alt text](https://eric124120.github.io/fmui-react/images/demo-url.png "二维码")
 
+### react+redux+fetch 开发架构设计
+URL：https://segmentfault.com/a/1190000009368717
+
