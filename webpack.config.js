@@ -68,18 +68,19 @@ module.exports = {
 	 * colors: 设置为true，使终端输出的文件为彩色的
 	 * historyApiFallback: 在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
 	 */
-	devServer: {
-		contentBase: "./public",
-		colors: true,
-		historyApiFallback: true,
-		inline: true,
-		host: '0.0.0.0',
-		// 代理接口（用于mock或express）
-		proxy: {
-			'*': {
-				target: 'http://127.0.0.1:3031',
-				secure: false
-			}
-		}
-	}
+    devServer: {
+        contentBase: "./public",
+        colors: true,
+        historyApiFallback: true,
+        disableHostCheck: true,
+        inline: true,
+        host: '0.0.0.0',
+        // 代理接口（用于mock或express）
+        proxy: {
+            '*': {
+                target: 'http://127.0.0.1:3031',
+                secure: false
+            }
+        }
+    },
 }
