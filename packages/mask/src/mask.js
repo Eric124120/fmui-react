@@ -28,6 +28,23 @@ export default class Mask extends Component {
 
 	}
 
+	shouldComponentUpdate(nextProp, nextState) {
+		return this.props.show !== nextProp.show;
+	}
+
+	componentDidUpdate() {
+        const { show } = this.props;
+
+        // 防止当webkitOverflowScrolling生效时，遮罩无法全屏
+        document.querySelector('body').style.webkitOverflowScrolling = show ? "auto" : 'touch';
+    }
+
+	touchMoveHandler(e) {
+		// 当遮罩弹起时，禁止滚动
+		e.preventDefault();
+
+	}
+
 	render() {
 		const { show, transparent, maskClick, ...others } = this.props;
 		const cls = classNames({
@@ -36,7 +53,9 @@ export default class Mask extends Component {
 		});
 
 		return (
-				<div {...others} className={cls} onClick={this.handler}></div>
+			<div {...others} className={cls}
+				 onTouchMove={this.touchMoveHandler}
+				 onClick={this.handler}></div>
 		);
 	};
 

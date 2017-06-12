@@ -19,16 +19,15 @@ export default class PopupModal extends Component {
 		show: PropTypes.bool
 	}
 
-	componentDidUpdate() {
-		const { show } = this.props;
-		let nodeContainer = findDOMNode(this);
+    shouldComponentUpdate(nextProp, nextState) {
+        return this.props.show !== nextProp.show;
+    }
 
-		while (nodeContainer.parentNode.tagName != 'BODY') {
-			nodeContainer.parentNode.style.overflow = show ? 'hidden' : '';
-			nodeContainer = nodeContainer.parentNode;
-		}
+    touchMoveHandler(e) {
+        // 禁止滚动
+        e.preventDefault();
 
-	}
+    }
 
 
 	render() {
@@ -46,7 +45,9 @@ export default class PopupModal extends Component {
 		return(
 			<div>
 				<Mask show={ show } maskClick={onCancelPopup}></Mask>
-				<div className={cls} {...props}>
+				<div className={cls}
+					 onTouchMove={this.touchMoveHandler}
+					 {...props}>
 					{titleDOM}
 					<button className="fm-modal-cancel" onClick={onCancelPopup}>取消</button>
 					<div className="fm-modal-body" {...props}>
