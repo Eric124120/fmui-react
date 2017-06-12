@@ -2,11 +2,12 @@
  * Created by huangchengwen on 17/1/2.
  */
 import { Component, PropTypes } from 'react';
+import ComponentModal from '../../base/component/ComponentModal';
 import classNames from 'classnames'
 import Mask from '../../mask'
 import './modal.scss'
 
-export default class Modal extends Component {
+export default class Modal extends ComponentModal {
 	constructor(prop) {
 		super(prop);
 	}
@@ -54,7 +55,9 @@ export default class Modal extends Component {
 		return(
 			<div  style={ { display: show ? 'block' : 'none' } }>
 				<Mask show={ show }></Mask>
-				<div className="fm-modal" {...others}>
+				<div className="fm-modal" {...others}
+					 // 禁止滚动
+					 onTouchMove={this.onTouchMove}>
 					<div className="fm-modal-header">
 						{iconDOM}
 						<h3 className="fm-modal-title">{title}</h3>

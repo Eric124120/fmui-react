@@ -3,12 +3,13 @@
  */
 import React, { Component, PropTypes, cloneElement } from 'react';
 import { findDOMNode, render } from 'react-dom';
+import ComponentModal from '../../base/component/ComponentModal';
 import classNames from 'classnames'
 import Mask from '../../mask'
 import './popupModal.scss'
 
 
-export default class PopupModal extends Component {
+export default class PopupModal extends ComponentModal {
 	constructor(prop) {
 		super(prop);
 	}
@@ -18,16 +19,6 @@ export default class PopupModal extends Component {
 		onCancelPopup: PropTypes.func,
 		show: PropTypes.bool
 	}
-
-    shouldComponentUpdate(nextProp, nextState) {
-        return this.props.show !== nextProp.show;
-    }
-
-    touchMoveHandler(e) {
-        // 禁止滚动
-        e.preventDefault();
-
-    }
 
 
 	render() {
@@ -46,7 +37,8 @@ export default class PopupModal extends Component {
 			<div>
 				<Mask show={ show } maskClick={onCancelPopup}></Mask>
 				<div className={cls}
-					 onTouchMove={this.touchMoveHandler}
+					 // 禁止滚动
+					 onTouchMove={this.onTouchMove}
 					 {...props}>
 					{titleDOM}
 					<button className="fm-modal-cancel" onClick={onCancelPopup}>取消</button>

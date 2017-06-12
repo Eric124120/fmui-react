@@ -1,8 +1,9 @@
 import { Component, PropTypes} from 'react';
+import ComponentModal from '../../base/component/ComponentModal';
 import classNames from 'classnames';
 import './mask.scss'
 
-export default class Mask extends Component {
+export default class Mask extends ComponentModal {
 
 	static PropTypes = {
 		transparent: PropTypes.bool,
@@ -28,9 +29,6 @@ export default class Mask extends Component {
 
 	}
 
-	shouldComponentUpdate(nextProp, nextState) {
-		return this.props.show !== nextProp.show;
-	}
 
 	componentDidUpdate() {
         const { show } = this.props;
@@ -54,7 +52,8 @@ export default class Mask extends Component {
 
 		return (
 			<div {...others} className={cls}
-				 onTouchMove={this.touchMoveHandler}
+				 // 禁止滚动
+				 onTouchMove={this.onTouchMove}
 				 onClick={this.handler}></div>
 		);
 	};

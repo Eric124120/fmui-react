@@ -1,14 +1,15 @@
 /**
  * Created by huangchengwen on 17/1/5.
  */
-import { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
-import classnames from 'classnames'
-import Mask from '../../mask'
+import { Component, PropTypes } from 'react';
+import ComponentModal from '../../base/component/ComponentModal';
+import ReactDOM from 'react-dom';
+import classnames from 'classnames';
+import Mask from '../../mask';
 
-import './actionsheet.scss'
+import './actionsheet.scss';
 
-export default class ActionSheet extends Component {
+export default class ActionSheet extends ComponentModal {
 	constructor(prop) {
 		super(prop);
 	}
@@ -61,7 +62,7 @@ export default class ActionSheet extends Component {
 		return(
 			<div>
 				<Mask show={show} maskClick={e => cancelFun(e, this)}/>
-				<div className={cls}>
+				<div className={cls} onTouchMove={this.onTouchMove}>
 					<div className="fm-actionsheet-menu">
 						{ this.renderMenus() }
 					</div>

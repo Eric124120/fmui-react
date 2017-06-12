@@ -1,6 +1,8 @@
 /**
  * Created by huangchengwen on 16/12/28.
  */
+import { Component, PropTypes } from 'react';
+import ComponentModal from '../../base/component/ComponentModal';
 import classNames from 'classnames';
 import Mask from '../../mask';
 import './toast.scss'
@@ -9,7 +11,7 @@ import './toast.scss'
 let singleton = null,
 	closeTimeout = null;
 
-export default class Toast extends React.Component {
+export default class Toast extends ComponentModal {
 
 
 	show(settings) {
@@ -76,7 +78,12 @@ export default class Toast extends React.Component {
 		return (
 			<div ref="toastDOM" style={{display: show ? 'block' : 'none'}}>
 				<Mask show={ modal }></Mask>
-				<div className="fm-toast" style={ type === 'normal' ? {  padding: '10px', width: '80%' } : {padding:'24px 24px 20px'}}>
+				<div className="fm-toast"
+					 style={ type === 'normal' ?
+						 {  padding: '10px', width: '80%' } :
+						 {padding:'24px 24px 20px'}}
+					 // 禁止滚动
+				     onTouchMove={this.onTouchMove}>
 					{IconComponent}
 					<span className="fm-toast-text" style={{ paddingTop: type === 'normal' ? '0' : '8px' }}>{ message }</span>
 				</div>
