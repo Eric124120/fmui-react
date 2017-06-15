@@ -14,10 +14,6 @@ class ComponentModal extends Component {
 
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return this.props.show !== nextProps.show;
-    }
-
     onTouchMove(e) {
         e.preventDefault();
     }
