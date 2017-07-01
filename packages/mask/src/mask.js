@@ -1,8 +1,9 @@
 import { Component, PropTypes} from 'react';
+import ComponentModal from '../../base/component/ComponentModal';
 import classNames from 'classnames';
 import './mask.scss'
 
-export default class Mask extends Component {
+export default class Mask extends ComponentModal {
 
 	static PropTypes = {
 		transparent: PropTypes.bool,
@@ -28,6 +29,20 @@ export default class Mask extends Component {
 
 	}
 
+
+	componentDidUpdate() {
+        const { show } = this.props;
+
+        // 防止当webkitOverflowScrolling生效时，遮罩无法全屏
+        document.querySelector('body').style.webkitOverflowScrolling = show ? "auto" : 'touch';
+    }
+
+	touchMoveHandler(e) {
+		// 当遮罩弹起时，禁止滚动
+		e.preventDefault();
+
+	}
+
 	render() {
 		const { show, transparent, maskClick, ...others } = this.props;
 		const cls = classNames({
@@ -36,7 +51,10 @@ export default class Mask extends Component {
 		});
 
 		return (
-				<div {...others} className={cls} onClick={this.handler}></div>
+			<div {...others} className={cls}
+				 // 禁止滚动
+				 onTouchMove={this.onTouchMove}
+				 onClick={this.handler}></div>
 		);
 	};
 

@@ -3,12 +3,13 @@
  */
 import React, { Component, PropTypes, cloneElement } from 'react';
 import { findDOMNode, render } from 'react-dom';
+import ComponentModal from '../../base/component/ComponentModal';
 import classNames from 'classnames'
 import Mask from '../../mask'
 import './popupModal.scss'
 
 
-export default class PopupModal extends Component {
+export default class PopupModal extends ComponentModal {
 	constructor(prop) {
 		super(prop);
 	}
@@ -17,17 +18,6 @@ export default class PopupModal extends Component {
 		title: PropTypes.string,
 		onCancelPopup: PropTypes.func,
 		show: PropTypes.bool
-	}
-
-	componentDidUpdate() {
-		const { show } = this.props;
-		let nodeContainer = findDOMNode(this);
-
-		while (nodeContainer.parentNode.tagName != 'BODY') {
-			nodeContainer.parentNode.style.overflow = show ? 'hidden' : '';
-			nodeContainer = nodeContainer.parentNode;
-		}
-
 	}
 
 
@@ -46,7 +36,10 @@ export default class PopupModal extends Component {
 		return(
 			<div>
 				<Mask show={ show } maskClick={onCancelPopup}></Mask>
-				<div className={cls} {...props}>
+				<div className={cls}
+					 // 禁止滚动
+					 onTouchMove={this.onTouchMove}
+					 {...props}>
 					{titleDOM}
 					<button className="fm-modal-cancel" onClick={onCancelPopup}>取消</button>
 					<div className="fm-modal-body" {...props}>
