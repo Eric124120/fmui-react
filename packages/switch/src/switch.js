@@ -9,20 +9,30 @@ export default class Switch extends Component {
 		super(prop);
 
 		this.state = {
-			checked: false
+			checked: this.props.defaultChecked
 		}
 	}
 
 	static propTypes = {
 		name: PropTypes.string,
+		defaultChecked: PropTypes.bool,
 		disabled: PropTypes.bool,
 		onChange: PropTypes.func
 	}
 
 	static defaultProps = {
 		name: 'switch',
+        defaultChecked: false,
 		disabled: false,
 		onChange: null
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if(this.props.defaultChecked !== nextProps.defaultChecked) {
+			this.setState({
+                checked: nextProps.defaultChecked
+			});
+		}
 	}
 
 	onChange(e) {

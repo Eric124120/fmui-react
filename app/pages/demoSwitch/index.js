@@ -17,7 +17,7 @@ export default class DemoSwitch extends Component {
 				<div className="fm-list-body">
 					<div className="fm-list-item">
 						<div className="fm-list-content">选中状态</div>
-						<Switch name="switch1" checked={true} onChange={this.change1.bind(this)}/>
+						<Switch name="switch1" defaultChecked={true} onChange={this.change1.bind(this)}/>
 					</div>
 					<div className="fm-list-item">
 						<div className="fm-list-content">未选中状态</div>
